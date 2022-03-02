@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "techno_backrooms",
+  "version": "${version}",
+
+  "name": "Techno's Backrooms Mod",
+  "description": "A Minecraft 1.18.1 Fabric Mod",
+  "authors": [
+    "Techno573"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": ""
+  },
+
+  "license": "MIT",
+  "icon": "assets/techno_backrooms/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.techno573.backrooms.Main"
+    ]
+  },
+  "mixins": [
+    "techno_backrooms.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.12.12",
+    "fabric": "*",
+    "minecraft": "1.18.x",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

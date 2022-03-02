@@ -1,0 +1,29 @@
+{
+  "ambient.level_0": {
+    "subtitle": "ambient.level_0",
+    "sounds": [
+      "techno_backrooms:ambient/level_0"
+    ]
+  },
+  "ambient.level_1": {
+    "subtitle": "ambient.level_1",
+    "sounds": [
+      "techno_backrooms:ambient/level_1"
+    ]
+  },
+  "ambient.generic": {
+    "subtitle": "ambient.generic",
+    "sounds": [
+      "techno_backrooms:ambient/generic"
+    ]
+  },
+  "misc.travel_glitch": {
+    "subtitle": "misc.travel_glitch",
+    "sounds": [
+      "techno_backrooms:misc/travel_glitch/glitch0",
+      "techno_backrooms:misc/travel_glitch/glitch1",
+      "techno_backrooms:misc/travel_glitch/glitch2",
+      "techno_backrooms:misc/travel_glitch/glitch3"
+    ]
+  }
+}

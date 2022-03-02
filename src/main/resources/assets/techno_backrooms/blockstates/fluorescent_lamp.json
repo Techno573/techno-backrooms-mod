@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "techno_backrooms:block/fluorescent_lamp"
+    },
+    "lit=true": {
+      "model": "techno_backrooms:block/fluorescent_lamp_on"
+    }
+  }
+}
