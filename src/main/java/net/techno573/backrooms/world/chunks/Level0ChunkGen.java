@@ -61,7 +61,7 @@ public class Level0ChunkGen extends NbtChunkGenerator {
             if (random.nextInt(20) <= 12){
                 generateNbt(chunkRegion, chunk.getPos().getStartPos(), "roomset_light_" + (random.nextInt(7)), BlockRotation.NONE);
             }
-            else if (random.nextInt(20) >=13 && random.nextInt(20) <= 18) {
+            else if (random.nextInt(20) >=13 && random.nextInt(20) <= 17) {
                 generateNbt(chunkRegion, chunk.getPos().getStartPos(), "roomset_dark_" + (random.nextInt(7)), BlockRotation.NONE);
             }
             else {

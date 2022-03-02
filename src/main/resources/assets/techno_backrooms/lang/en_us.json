@@ -1,5 +1,6 @@
 {
   "soundEvent.ambient.light_buzzing": "Fluorescent Lamps Buzzing",
+
   "item.techno_backrooms.almond_water": "Almond Water Bottle",
   "item.techno_backrooms.medical_kit": "Medical Kit",
 
@@ -10,6 +11,7 @@
   "block.techno_backrooms.lvl1_wall_block": "Level 1 Wall Block",
   "block.techno_backrooms.lvl1_floor_block": "Level 1 Floor Block",
   "block.techno_backrooms.lvl1_ceiling_block": "Level 1 Ceiling Block",
+  "block.techno_backrooms.lvl1_portal_block": "Level 1 Portal Block",
   "block.techno_backrooms.fluorescent_lamp": "Fluorescent Lamp",
 
   "itemGroup.techno_backrooms.techno_backrooms": "Techno's Backrooms Mod"

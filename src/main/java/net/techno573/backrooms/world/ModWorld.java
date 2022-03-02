@@ -58,6 +58,7 @@ public class ModWorld {
             OptionalLong.of(6000),true,false,false, false,1.0f,false,
             false,true,true,false,0,128,128,Main.id("level_0"),Main.id("level_0"),
             0.0f), (biomeRegistry, seed) -> new Level0ChunkGen(new FixedBiomeSource(biomeRegistry.getOrThrow(ModWorld.LEVEL_0_BIOME)),seed),LEVEL_0_EFFECTS));
+
     public static final LiminalWorld LEVEL_1_WORLD = getWorld("level_1",new LiminalWorld(Main.id("level_1"),DimensionType.create(
             OptionalLong.of(6000),true,false,false, false,1.0f,false,
             false,true,true,false,0,128,128,Main.id("level_1"),Main.id("level_1"),
