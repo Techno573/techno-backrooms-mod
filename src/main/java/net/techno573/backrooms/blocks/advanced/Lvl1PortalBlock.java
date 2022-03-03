@@ -23,8 +23,8 @@ public class Lvl1PortalBlock extends Block {
     @Override
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
         if (world instanceof ServerWorld && !entity.hasVehicle() && entity.isPlayer() && !entity.hasPassengers() && entity.canUsePortals() && VoxelShapes.matchesAnywhere(VoxelShapes.cuboid(entity.getBoundingBox().offset(-pos.getX(), -pos.getY(), -pos.getZ())), state.getOutlineShape(world, pos), BooleanBiFunction.AND)) {
-            RegistryKey<World> registryKey = world.getRegistryKey() ==  World.OVERWORLD ? ModWorld.LEVEL_1_WORLD.worldWorldRegistryKey :  World.OVERWORLD ;
-            ServerWorld serverWorld = ((ServerWorld)world).getServer().getWorld(registryKey);
+
+            ServerWorld serverWorld = ((ServerWorld)world).getServer().getWorld(World.OVERWORLD);
             if (serverWorld == null) {
                 return;
             }
@@ -34,7 +34,7 @@ public class Lvl1PortalBlock extends Block {
                     entity,
                     serverWorld,
                     new TeleportTarget(
-                            new Vec3d(entity.getPos().x,5,entity.getPos().z),
+                            new Vec3d(serverWorld.getSpawnPos().getX(), serverWorld.getSpawnPos().getY(),serverWorld.getSpawnPos().getZ()),
                             new Vec3d(0,0,0),
                             entity.getYaw(),
                             entity.getPitch()

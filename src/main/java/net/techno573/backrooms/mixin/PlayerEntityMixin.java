@@ -25,10 +25,9 @@ public abstract class PlayerEntityMixin {
         PlayerEntity player = ((PlayerEntity) (Object) this);
         World world = player.world;
 
-        if (world instanceof ServerWorld && !player.hasVehicle() && !player.hasPassengers() && player.isInsideWall() && world.getRandom().nextDouble(1) < 0.01) {
+        if (world instanceof ServerWorld && !player.hasVehicle() && !player.hasPassengers() && player.isInsideWall() && world.getRegistryKey() == World.OVERWORLD && world.getRandom().nextDouble(1) < 0.01) {
 
-            RegistryKey<World> registryKey = world.getRegistryKey() == ModWorld.LEVEL_0_WORLD.worldWorldRegistryKey ? World.OVERWORLD : ModWorld.LEVEL_0_WORLD.worldWorldRegistryKey;
-            ServerWorld serverWorld = ((ServerWorld)world).getServer().getWorld(registryKey);
+            ServerWorld serverWorld = ((ServerWorld)world).getServer().getWorld(ModWorld.LEVEL_0_WORLD.worldWorldRegistryKey);
             if (serverWorld == null) {
                 return;
             }
@@ -38,7 +37,7 @@ public abstract class PlayerEntityMixin {
                     player,
                     serverWorld,
                     new TeleportTarget(
-                            new Vec3d(player.getPos().x,5,player.getPos().z),
+                            new Vec3d(serverWorld.getSpawnPos().getX(), 4,serverWorld.getSpawnPos().getZ()),
                             new Vec3d(0,0,0),
                             player.getYaw(),
                             player.getPitch()

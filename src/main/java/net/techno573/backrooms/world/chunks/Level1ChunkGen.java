@@ -59,13 +59,13 @@ public class Level1ChunkGen extends NbtChunkGenerator {
         if (mod(x, 48) == 0 && mod(z, 48) == 0) {
 
             if (random.nextInt(20) <= 11){
-                generateNbt(chunkRegion, chunk.getPos().getStartPos(), "roomset_light_" + (random.nextInt(4)), BlockRotation.NONE);
+                generateNbt(chunkRegion, chunk.getPos().getStartPos(), "roomset_light_" + (random.nextInt(7)), BlockRotation.NONE);
             }
             else if (random.nextInt(20) >=12 && random.nextInt(20) <= 17) {
-                generateNbt(chunkRegion, chunk.getPos().getStartPos(), "roomset_dark_" + (random.nextInt(4)), BlockRotation.NONE);
+                generateNbt(chunkRegion, chunk.getPos().getStartPos(), "roomset_dark_" + (random.nextInt(7)), BlockRotation.NONE);
             }
             else {
-                generateNbt(chunkRegion, chunk.getPos().getStartPos(), "roomset_portal_" + (random.nextInt(4)), BlockRotation.NONE);
+                generateNbt(chunkRegion, chunk.getPos().getStartPos(), "roomset_portal_" + (random.nextInt(7)), BlockRotation.NONE);
             }
 
         }
@@ -97,9 +97,9 @@ public class Level1ChunkGen extends NbtChunkGenerator {
     public void storeStructures(ServerWorld world) {
         super.storeStructures(world);
 
-        store("roomset_light",world,0,3);
-        store("roomset_dark",world,0,3);
-        store("roomset_portal",world,0,3);
+        store("roomset_light",world,0,6);
+        store("roomset_dark",world,0,6);
+        store("roomset_portal",world,0,6);
 
     }
 

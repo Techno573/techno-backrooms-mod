@@ -51,17 +51,17 @@ public class ModWorld {
     //Effects List
 
     public static final LiminalEffects LEVEL_0_EFFECTS = new LiminalEffects(Optional.empty(), Optional.empty(),Optional.empty(),Optional.empty(),Optional.empty(), Optional.of(new ReverbSettings().setEnabled(false)));
-    public static final LiminalEffects LEVEL_1_EFFECTS = new LiminalEffects(Optional.empty(), Optional.empty(),Optional.empty(),Optional.empty(),Optional.empty(), Optional.of(new ReverbSettings().setEnabled(true)));
+    public static final LiminalEffects LEVEL_1_EFFECTS = new LiminalEffects(Optional.empty(), Optional.empty(),Optional.empty(),Optional.empty(),Optional.empty(), Optional.of(new ReverbSettings().setEnabled(true).setDecayTime(1.5f).setDensity(1.25f)));
 
     //Dimension List
     public static final LiminalWorld LEVEL_0_WORLD = getWorld("level_0",new LiminalWorld(Main.id("level_0"),DimensionType.create(
             OptionalLong.of(6000),true,false,false, false,1.0f,false,
-            false,true,true,false,0,128,128,Main.id("level_0"),Main.id("level_0"),
+            false,true,true,false,0,128,5,Main.id("level_0"),Main.id("level_0"),
             0.0f), (biomeRegistry, seed) -> new Level0ChunkGen(new FixedBiomeSource(biomeRegistry.getOrThrow(ModWorld.LEVEL_0_BIOME)),seed),LEVEL_0_EFFECTS));
 
     public static final LiminalWorld LEVEL_1_WORLD = getWorld("level_1",new LiminalWorld(Main.id("level_1"),DimensionType.create(
             OptionalLong.of(6000),true,false,false, false,1.0f,false,
-            false,true,true,false,0,128,128,Main.id("level_1"),Main.id("level_1"),
+            false,true,true,false,0,128,5,Main.id("level_1"),Main.id("level_1"),
             0.0f), (biomeRegistry, seed) -> new Level1ChunkGen(new FixedBiomeSource(biomeRegistry.getOrThrow(ModWorld.LEVEL_1_BIOME)),seed),LEVEL_1_EFFECTS));
 
 
