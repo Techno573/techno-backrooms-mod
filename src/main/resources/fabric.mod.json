@@ -19,7 +19,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.techno573.backrooms.Main"
+      "net.techno573.backrooms.BackroomsMod"
+    ],
+    "client": [
+      "net.techno573.backrooms.BackroomsModClient"
     ]
   },
   "mixins": [

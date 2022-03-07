@@ -11,12 +11,8 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
-	maven {
-		url 'https://jitpack.io'
-	}
-	maven {
-		url 'https://ladysnake.jfrog.io/artifactory/mods'
-	}
+	maven {url 'https://jitpack.io'}
+	maven {url 'https://ladysnake.jfrog.io/artifactory/mods'}
 }
 
 dependencies {
@@ -33,7 +29,6 @@ dependencies {
 
 	include "com.github.LudoCrypt:Liminal-Library:${project.limlib_version}"
 	include "io.github.ladysnake:satin:${satin_version}"
-
 }
 
 processResources {

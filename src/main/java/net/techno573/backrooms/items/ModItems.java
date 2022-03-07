@@ -2,9 +2,8 @@ package net.techno573.backrooms.items;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import net.techno573.backrooms.Main;
+import net.techno573.backrooms.BackroomsMod;
 import net.techno573.backrooms.items.advanced.AlmondWaterItem;
 import net.techno573.backrooms.items.advanced.MedicalKitItem;
 
@@ -21,10 +20,10 @@ public class ModItems {
     //Register Items
 
     private static Item registerItem(String name, Item item) {
-        return Registry.register(Registry.ITEM, new Identifier(Main.MOD_ID, name), item);
+        return Registry.register(Registry.ITEM, BackroomsMod.id(name), item);
     }
 
     public static void registerModItems() {
-        Main.LOGGER.info("Registering Mod Items for " + Main.MOD_ID);
+        BackroomsMod.LOGGER.info("Registering Mod Items for " + BackroomsMod.MOD_ID);
     }
 }

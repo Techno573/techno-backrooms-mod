@@ -1,9 +1,12 @@
 {
   "replace": false,
   "values": [
-    "techno_backrooms:fluorescent_lamp",
     "techno_backrooms:lvl1_wall_block",
     "techno_backrooms:lvl1_floor_block",
-    "techno_backrooms:lvl1_ceiling_block"
+    "techno_backrooms:lvl1_ceiling_block",
+    "techno_backrooms:lvl2_wall_block",
+    "techno_backrooms:lvl2_floor_block",
+    "techno_backrooms:lvl2_ceiling_block",
+    "techno_backrooms:fluorescent_lamp"
   ]
 }

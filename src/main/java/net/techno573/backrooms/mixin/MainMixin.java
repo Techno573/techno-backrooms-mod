@@ -1,6 +1,6 @@
 package net.techno573.backrooms.mixin;
 
-import net.techno573.backrooms.Main;
+import net.techno573.backrooms.BackroomsMod;
 import net.minecraft.client.gui.screen.TitleScreen;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -11,6 +11,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class MainMixin {
 	@Inject(at = @At("HEAD"), method = "init()V")
 	private void init(CallbackInfo info) {
-		Main.LOGGER.info("This line is printed by an example mod mixin!");
+		BackroomsMod.LOGGER.info("This line is printed by an example mod mixin!");
 	}
 }

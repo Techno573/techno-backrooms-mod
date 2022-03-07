@@ -17,7 +17,7 @@ import net.minecraft.world.biome.source.util.MultiNoiseUtil;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkStatus;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.techno573.backrooms.Main;
+import net.techno573.backrooms.BackroomsMod;
 
 import java.util.List;
 import java.util.Random;
@@ -34,7 +34,7 @@ public class Level1ChunkGen extends NbtChunkGenerator {
     }));
 
     public Level1ChunkGen(BiomeSource biomeSource, long worldSeed) {
-        super(biomeSource, worldSeed, Main.id("level_1"),List.of());
+        super(biomeSource, worldSeed, BackroomsMod.id("level_1"),List.of());
     }
 
     public Level1ChunkGen(BiomeSource biomeSource, MultiNoiseUtil.MultiNoiseSampler multiNoiseSampler, long worldSeed, Identifier nbtId, List<String> structures) {
@@ -61,7 +61,7 @@ public class Level1ChunkGen extends NbtChunkGenerator {
             if (random.nextInt(20) <= 11){
                 generateNbt(chunkRegion, chunk.getPos().getStartPos(), "roomset_light_" + (random.nextInt(7)), BlockRotation.NONE);
             }
-            else if (random.nextInt(20) >=12 && random.nextInt(20) <= 17) {
+            else if (random.nextInt(20) >=12 && random.nextInt(20) <= 18) {
                 generateNbt(chunkRegion, chunk.getPos().getStartPos(), "roomset_dark_" + (random.nextInt(7)), BlockRotation.NONE);
             }
             else {
@@ -110,6 +110,6 @@ public class Level1ChunkGen extends NbtChunkGenerator {
 
     @Override
     protected Identifier getBarrelLootTable() {
-        return Main.id("containers/supply_crate");
+        return BackroomsMod.id("containers/supply_crate");
     }
 }
