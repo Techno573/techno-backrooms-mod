@@ -1,9 +1,11 @@
 package net.techno573.backrooms.world.biomes;
 
+import net.minecraft.entity.SpawnGroup;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.biome.GenerationSettings;
 import net.minecraft.world.biome.SpawnSettings;
+import net.techno573.backrooms.entities.ModEntities;
 import net.techno573.backrooms.sounds.ModSounds;
 
 public class Level1Biome {
@@ -23,7 +25,11 @@ public class Level1Biome {
         biomeEffects.loopSound(ModSounds.LEVEL_1_AMBIENT);
         BiomeEffects effects = biomeEffects.build();
 
-        biome.spawnSettings(spawnSettings.build());
+        biome.spawnSettings(spawnSettings
+                .spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.STEVE_FACELING,1,0,1))
+                .spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.ALEX_FACELING,1,0,1))
+                .creatureSpawnProbability(0.1f)
+                .build());
         biome.generationSettings(generationSettings.build());
         biome.effects(effects);
 

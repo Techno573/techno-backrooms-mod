@@ -2,8 +2,11 @@ package net.techno573.backrooms.items;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.SpawnEggItem;
 import net.minecraft.util.registry.Registry;
 import net.techno573.backrooms.BackroomsMod;
+import net.techno573.backrooms.entities.ModEntities;
 import net.techno573.backrooms.items.advanced.AlmondWaterItem;
 import net.techno573.backrooms.items.advanced.MedicalKitItem;
 
@@ -16,6 +19,12 @@ public class ModItems {
 
     public static final Item MEDICAL_KIT = registerItem("medical_kit", new MedicalKitItem(
             new FabricItemSettings().maxCount(1).group(ModItemGroup.TECHNO_BACKROOMS)));
+
+    public static final Item STEVE_FACELING_SPAWN_EGG = registerItem("steve_faceling_spawn_egg", new SpawnEggItem(
+            ModEntities.STEVE_FACELING, 44975, 4602533, new Item.Settings().group(ModItemGroup.TECHNO_BACKROOMS)));
+
+    public static final Item ALEX_FACELING_SPAWN_EGG = registerItem("alex_faceling_spawn_egg", new SpawnEggItem(
+            ModEntities.ALEX_FACELING, 9223818, 6570284, new Item.Settings().group(ModItemGroup.TECHNO_BACKROOMS)));
 
     //Register Items
 

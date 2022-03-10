@@ -1,0 +1,92 @@
+{
+  "variants": {
+    "facing=east,shape=inner_left": {
+      "model": "techno_backrooms:block/small_pipes_corner",
+      "y": 270,
+      "uvlock": false
+    },
+    "facing=east,shape=inner_right": {
+      "model": "techno_backrooms:block/small_pipes_corner"
+    },
+    "facing=east,shape=outer_left": {
+      "model": "techno_backrooms:block/small_pipes_corner",
+      "y": 270,
+      "uvlock": false
+    },
+    "facing=east,shape=outer_right": {
+      "model": "techno_backrooms:block/small_pipes_corner"
+    },
+    "facing=east,shape=straight": {
+      "model": "techno_backrooms:block/small_pipes_straight"
+    },
+    "facing=north,shape=inner_left": {
+      "model": "techno_backrooms:block/small_pipes_corner",
+      "y": 180,
+      "uvlock": false
+    },
+    "facing=north,shape=inner_right": {
+      "model": "techno_backrooms:block/small_pipes_corner",
+      "y": 270
+    },
+    "facing=north,shape=outer_left": {
+      "model": "techno_backrooms:block/small_pipes_corner",
+      "y": 180,
+      "uvlock": false
+    },
+    "facing=north,shape=outer_right": {
+      "model": "techno_backrooms:block/small_pipes_corner",
+      "y": 270,
+      "uvlock": false
+    },
+    "facing=north,shape=straight": {
+      "model": "techno_backrooms:block/small_pipes_straight",
+      "y": 270,
+      "uvlock": false
+    },
+    "facing=south,shape=inner_left": {
+      "model": "techno_backrooms:block/small_pipes_corner"
+    },
+    "facing=south,shape=inner_right": {
+      "model": "techno_backrooms:block/small_pipes_corner",
+      "y": 90,
+      "uvlock": false
+    },
+    "facing=south,shape=outer_left": {
+      "model": "techno_backrooms:block/small_pipes_corner"
+    },
+    "facing=south,shape=outer_right": {
+      "model": "techno_backrooms:block/small_pipes_corner",
+      "y": 90,
+      "uvlock": false
+    },
+    "facing=south,shape=straight": {
+      "model": "techno_backrooms:block/small_pipes_straight",
+      "y": 90,
+      "uvlock": false
+    },
+    "facing=west,shape=inner_left": {
+      "model": "techno_backrooms:block/small_pipes_corner",
+      "y": 90,
+      "uvlock": false
+    },
+    "facing=west,shape=inner_right": {
+      "model": "techno_backrooms:block/small_pipes_corner",
+      "y": 180
+    },
+    "facing=west,shape=outer_left": {
+      "model": "techno_backrooms:block/small_pipes_corner",
+      "y": 90,
+      "uvlock": false
+    },
+    "facing=west,shape=outer_right": {
+      "model": "techno_backrooms:block/small_pipes_corner",
+      "y": 180,
+      "uvlock": false
+    },
+    "facing=west,shape=straight": {
+      "model": "techno_backrooms:block/small_pipes_straight",
+      "y": 180,
+      "uvlock": false
+    }
+  }
+}

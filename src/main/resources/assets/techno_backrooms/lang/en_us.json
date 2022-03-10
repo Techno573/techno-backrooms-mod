@@ -6,6 +6,9 @@
 
   "item.techno_backrooms.almond_water": "Almond Water Bottle",
   "item.techno_backrooms.medical_kit": "Medical Kit",
+  "item.techno_backrooms.steve_faceling_spawn_egg": "Faceling Steve Spawn Egg",
+  "item.techno_backrooms.alex_faceling_spawn_egg": "Faceling Alex Spawn Egg",
+
 
   "block.techno_backrooms.lvl0_wall_block": "Level 0 Wall Block",
   "block.techno_backrooms.lvl0_floor_block": "Level 0 Floor Block",
@@ -20,6 +23,8 @@
   "block.techno_backrooms.lvl2_ceiling_block": "Level 2 Ceiling Block",
   "block.techno_backrooms.lvl2_portal_block": "Level 2 Portal Block",
   "block.techno_backrooms.fluorescent_lamp": "Fluorescent Lamp",
+  "block.techno_backrooms.small_pipes": "Small Pipes",
+  "block.techno_backrooms.large_pipes": "Large Pipes",
 
   "itemGroup.techno_backrooms.techno_backrooms": "Techno's Backrooms Mod"
 }

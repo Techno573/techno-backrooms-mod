@@ -3,16 +3,15 @@ package net.techno573.backrooms.blocks;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
+import net.minecraft.block.StairsBlock;
 import net.minecraft.item.*;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.techno573.backrooms.BackroomsMod;
-import net.techno573.backrooms.blocks.advanced.FluorescentLampBlock;
-import net.techno573.backrooms.blocks.advanced.Lvl0PortalBlock;
-import net.techno573.backrooms.blocks.advanced.Lvl1PortalBlock;
-import net.techno573.backrooms.blocks.advanced.Lvl2PortalBlock;
+import net.techno573.backrooms.blocks.advanced.*;
 import net.techno573.backrooms.items.ModItemGroup;
 
 
@@ -60,8 +59,15 @@ public class ModBlocks {
             .strength(6.0f).hardness(2.0f).requiresTool().sounds(BlockSoundGroup.STONE)), ModItemGroup.TECHNO_BACKROOMS);
 
     //Blocks List - Generic
+
     public static final Block FLUORESCENT_LAMP = registerBlock("fluorescent_lamp", new FluorescentLampBlock(FabricBlockSettings.of(Material.REDSTONE_LAMP)
             .strength(0.5f).hardness(0.5f).requiresTool().lightLevel((state) -> state.get(FluorescentLampBlock.LIT) ? 15 : 0).sounds(BlockSoundGroup.GLASS)), ModItemGroup.TECHNO_BACKROOMS);
+
+    public static final Block LARGE_PIPES = registerBlock("large_pipes", new PipeBlock(Blocks.COPPER_BLOCK.getDefaultState(),FabricBlockSettings.of(Material.METAL)
+            .strength(6.0f).hardness(2.0f).requiresTool().sounds(BlockSoundGroup.METAL)), ModItemGroup.TECHNO_BACKROOMS);
+
+    public static final Block SMALL_PIPES = registerBlock("small_pipes", new PipeBlock(Blocks.COPPER_BLOCK.getDefaultState(), FabricBlockSettings.of(Material.METAL)
+            .strength(6.0f).hardness(2.0f).requiresTool().sounds(BlockSoundGroup.METAL)), ModItemGroup.TECHNO_BACKROOMS);
 
     //Register Blocks
     private static Block registerBlock(String name, Block block, ItemGroup group) {
