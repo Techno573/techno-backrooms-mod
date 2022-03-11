@@ -12,7 +12,7 @@ public class ModSounds {
     public static SoundEvent TRAVEL_GLITCH = registerSoundEvent("misc.travel_glitch");
     public static SoundEvent LEVEL_0_AMBIENT = registerSoundEvent("ambient.level_0");
     public static SoundEvent LEVEL_1_AMBIENT = registerSoundEvent("ambient.level_1");
-    public static SoundEvent GENERIC_AMBIENT = registerSoundEvent("ambient.generic");
+    public static SoundEvent LEVEL_2_AMBIENT = registerSoundEvent("ambient.level_2");
 
     private static SoundEvent registerSoundEvent(String name) {
         Identifier id = BackroomsMod.id(name);

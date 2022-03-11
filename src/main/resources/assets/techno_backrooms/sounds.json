@@ -11,10 +11,10 @@
       "techno_backrooms:ambient/level_1"
     ]
   },
-  "ambient.generic": {
-    "subtitle": "ambient.generic",
+  "ambient.level_2": {
+    "subtitle": "ambient.level_2",
     "sounds": [
-      "techno_backrooms:ambient/generic"
+      "techno_backrooms:ambient/level_2"
     ]
   },
   "misc.travel_glitch": {
