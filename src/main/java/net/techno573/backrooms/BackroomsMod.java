@@ -3,12 +3,13 @@ package net.techno573.backrooms;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
 import net.techno573.backrooms.blocks.ModBlocks;
-import net.techno573.backrooms.entities.ModEntities;
+import net.techno573.backrooms.entity.ModEntities;
 import net.techno573.backrooms.items.ModItems;
 import net.techno573.backrooms.sounds.ModSounds;
 import net.techno573.backrooms.world.ModWorld;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import software.bernie.geckolib3.GeckoLib;
 
 public class BackroomsMod implements ModInitializer {
 
@@ -29,6 +30,6 @@ public class BackroomsMod implements ModInitializer {
 		ModWorld.init();
 		ModEntities.registerEntityAttributes();
 		ModEntities.registerEntityAttributes();
-
+		GeckoLib.initialize();
 	}
 }

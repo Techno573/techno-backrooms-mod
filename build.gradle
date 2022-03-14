@@ -13,6 +13,7 @@ group = project.maven_group
 repositories {
 	maven {url 'https://jitpack.io'}
 	maven {url 'https://ladysnake.jfrog.io/artifactory/mods'}
+	maven {url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'}
 }
 
 dependencies {
@@ -26,6 +27,7 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	modImplementation "com.github.LudoCrypt:Liminal-Library:${project.limlib_version}"
 	modImplementation "io.github.ladysnake:satin:${satin_version}"
+	modImplementation 'software.bernie.geckolib:geckolib-fabric-1.18:3.0.32'
 
 	include "com.github.LudoCrypt:Liminal-Library:${project.limlib_version}"
 	include "io.github.ladysnake:satin:${satin_version}"

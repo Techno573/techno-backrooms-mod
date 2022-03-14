@@ -5,7 +5,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.biome.GenerationSettings;
 import net.minecraft.world.biome.SpawnSettings;
-import net.techno573.backrooms.entities.ModEntities;
+import net.techno573.backrooms.entity.ModEntities;
 import net.techno573.backrooms.sounds.ModSounds;
 
 public class Level1Biome {
@@ -28,7 +28,7 @@ public class Level1Biome {
         biome.spawnSettings(spawnSettings
                 .spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.STEVE_FACELING,1,0,1))
                 .spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.ALEX_FACELING,1,0,1))
-                .creatureSpawnProbability(0.1f)
+                .creatureSpawnProbability(0.05f)
                 .build());
         biome.generationSettings(generationSettings.build());
         biome.effects(effects);

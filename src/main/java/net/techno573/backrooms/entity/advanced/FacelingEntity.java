@@ -1,4 +1,4 @@
-package net.techno573.backrooms.entities.advanced;
+package net.techno573.backrooms.entity.advanced;
 
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
@@ -11,16 +11,26 @@ import net.minecraft.util.TimeHelper;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import software.bernie.geckolib3.core.IAnimatable;
+import software.bernie.geckolib3.core.PlayState;
+import software.bernie.geckolib3.core.builder.AnimationBuilder;
+import software.bernie.geckolib3.core.controller.AnimationController;
+import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
+import software.bernie.geckolib3.core.manager.AnimationData;
+import software.bernie.geckolib3.core.manager.AnimationFactory;
+
 import java.util.UUID;
 
-public class FacelingEntity extends HostileEntity implements Angerable {
+public class FacelingEntity extends HostileEntity implements Angerable, IAnimatable {
 
     private int angerTime;
     private UUID targetUuid;
     private static final UniformIntProvider ANGER_TIME_RANGE = TimeHelper.betweenSeconds(20, 39);
+    private AnimationFactory factory = new AnimationFactory(this);
 
     public FacelingEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
+        this.ignoreCameraFrustum = true;
     }
 
     public static DefaultAttributeContainer.Builder createFacelingAttributes() {
@@ -86,5 +96,31 @@ public class FacelingEntity extends HostileEntity implements Angerable {
             this.setAttacking((PlayerEntity)target);
         }
         super.setTarget(target);
+    }
+
+    @Override
+    public void registerControllers(AnimationData animationData) {
+        animationData.addAnimationController(new AnimationController(this,"controller",0,this::predicate));
+    }
+
+    @Override
+    public AnimationFactory getFactory() {
+        return factory;
+    }
+
+    //Animations
+    private <facelingEntity extends IAnimatable>PlayState predicate(AnimationEvent<facelingEntity> event) {
+        if(event.isMoving() && !this.isAttacking()) {
+            event.getController().setAnimationSpeed(2.5);
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.faceling.walk"));
+            return PlayState.CONTINUE;
+        } else if (event.isMoving() && this.isAttacking()) {
+            event.getController().setAnimationSpeed(5.0);
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.faceling.run"));
+            return PlayState.CONTINUE;
+        }
+        event.getController().setAnimationSpeed(1.5);
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.faceling.idle"));
+        return PlayState.CONTINUE;
     }
 }
