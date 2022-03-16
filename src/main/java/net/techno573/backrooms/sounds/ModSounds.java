@@ -13,6 +13,8 @@ public class ModSounds {
     public static SoundEvent LEVEL_0_AMBIENT = registerSoundEvent("ambient.level_0");
     public static SoundEvent LEVEL_1_AMBIENT = registerSoundEvent("ambient.level_1");
     public static SoundEvent LEVEL_2_AMBIENT = registerSoundEvent("ambient.level_2");
+    public static SoundEvent DULLER_AMBIENT = registerSoundEvent("entity.duller.ambient");
+    public static SoundEvent DULLER_SCREAM = registerSoundEvent("entity.duller.scream");
 
     private static SoundEvent registerSoundEvent(String name) {
         Identifier id = BackroomsMod.id(name);

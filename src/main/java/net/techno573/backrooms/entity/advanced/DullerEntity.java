@@ -1,18 +1,29 @@
 package net.techno573.backrooms.entity.advanced;
 
+import net.minecraft.block.BlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.MovementType;
+import net.minecraft.entity.ai.TargetPredicate;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.mob.Angerable;
+import net.minecraft.entity.mob.EndermanEntity;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.TimeHelper;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
+import net.minecraft.world.TeleportTarget;
 import net.minecraft.world.World;
+import net.techno573.backrooms.sounds.ModSounds;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -23,6 +34,7 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
 import java.util.UUID;
+import java.util.function.Predicate;
 
 public class DullerEntity extends HostileEntity implements IAnimatable {
 
@@ -33,6 +45,7 @@ public class DullerEntity extends HostileEntity implements IAnimatable {
         this.ignoreCameraFrustum = true;
     }
 
+    //Attributes
     public static DefaultAttributeContainer.Builder createFacelingAttributes() {
         return HostileEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 16)
@@ -42,13 +55,19 @@ public class DullerEntity extends HostileEntity implements IAnimatable {
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 25);
     }
 
+    //Goals
     @Override
     protected void initGoals() {
         this.goalSelector.add(1,new MeleeAttackGoal(this,1.0,false));
         this.goalSelector.add(2,new WanderAroundFarGoal(this,0.6));
         this.goalSelector.add(3,new LookAtEntityGoal(this,PlayerEntity.class,8.0f));
         this.goalSelector.add(4,new LookAroundGoal(this));
-        this.targetSelector.add(1, new ActiveTargetGoal<PlayerEntity>(this, PlayerEntity.class, true));
+        this.targetSelector.add(1, new ActiveTargetGoal<PlayerEntity>(this, PlayerEntity.class, false));
+    }
+
+    @Override
+    protected boolean isDisallowedInPeaceful() {
+        return true;
     }
 
     @Override
@@ -56,6 +75,22 @@ public class DullerEntity extends HostileEntity implements IAnimatable {
         super.onTrackedDataSet(data);
     }
 
+    //Sounds
+    @Override
+    protected SoundEvent getDeathSound() {
+        return ModSounds.DULLER_SCREAM;
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getAmbientSound() {
+        if (this.isAttacking()) {
+            return ModSounds.DULLER_SCREAM;
+        }
+        return ModSounds.DULLER_AMBIENT;
+    }
+
+    //Animations
     @Override
     public void registerControllers(AnimationData animationData) {
         animationData.addAnimationController(new AnimationController(this,"controller",0,this::predicate));
@@ -66,9 +101,8 @@ public class DullerEntity extends HostileEntity implements IAnimatable {
         return factory;
     }
 
-    //Animations
     private <dullerEntity extends IAnimatable>PlayState predicate(AnimationEvent<dullerEntity> event) {
-        if(event.isMoving() && !this.isAttacking()) {
+        if (event.isMoving() && !this.isAttacking()) {
             event.getController().setAnimationSpeed(2.5);
             event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.duller.walk"));
             return PlayState.CONTINUE;

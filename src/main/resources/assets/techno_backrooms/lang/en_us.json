@@ -1,5 +1,6 @@
 {
-  "soundEvent.ambient.light_buzzing": "Fluorescent Lamps Buzzing",
+  "soundEvent.entity.duller.ambient": "Duller Groans",
+  "soundEvent.entity.duller.scream": "Duller Screams",
 
   "entity.techno_backrooms.steve_faceling": "Faceling Steve",
   "entity.techno_backrooms.alex_faceling": "Faceling Alex",

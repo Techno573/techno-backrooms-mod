@@ -25,5 +25,23 @@
       "techno_backrooms:misc/travel_glitch/glitch2",
       "techno_backrooms:misc/travel_glitch/glitch3"
     ]
+  },
+  "entity.duller.ambient": {
+    "subtitle": "entity.duller.ambient",
+    "sounds": [
+      "techno_backrooms:entity/duller/groan1",
+      "techno_backrooms:entity/duller/groan2",
+      "techno_backrooms:entity/duller/groan3",
+      "techno_backrooms:entity/duller/groan4"
+    ]
+  },
+  "entity.duller.scream": {
+    "subtitle": "entity.duller.scream",
+    "sounds": [
+    "techno_backrooms:entity/duller/scream1",
+    "techno_backrooms:entity/duller/scream2",
+    "techno_backrooms:entity/duller/scream3",
+    "techno_backrooms:entity/duller/scream4"
+    ]
   }
 }

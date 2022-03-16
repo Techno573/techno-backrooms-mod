@@ -33,6 +33,7 @@ public class FacelingEntity extends HostileEntity implements Angerable, IAnimata
         this.ignoreCameraFrustum = true;
     }
 
+    //Attributes
     public static DefaultAttributeContainer.Builder createFacelingAttributes() {
         return HostileEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 16)
@@ -42,6 +43,7 @@ public class FacelingEntity extends HostileEntity implements Angerable, IAnimata
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 20);
     }
 
+    //Goals
     @Override
     protected void initGoals() {
         this.goalSelector.add(1,new MeleeAttackGoal(this,1.0,false));
@@ -51,6 +53,11 @@ public class FacelingEntity extends HostileEntity implements Angerable, IAnimata
         this.targetSelector.add(1, new RevengeGoal(this, new Class[0]).setGroupRevenge(new Class[0]));
         this.targetSelector.add(2, new ActiveTargetGoal<PlayerEntity>(this, PlayerEntity.class, 10, true, false, this::shouldAngerAt));
         this.targetSelector.add(3, new UniversalAngerGoal<FacelingEntity>(this, false));
+    }
+
+    @Override
+    protected boolean isDisallowedInPeaceful() {
+        return true;
     }
 
     @Override
@@ -98,6 +105,7 @@ public class FacelingEntity extends HostileEntity implements Angerable, IAnimata
         super.setTarget(target);
     }
 
+    //Animations
     @Override
     public void registerControllers(AnimationData animationData) {
         animationData.addAnimationController(new AnimationController(this,"controller",0,this::predicate));
@@ -108,7 +116,6 @@ public class FacelingEntity extends HostileEntity implements Angerable, IAnimata
         return factory;
     }
 
-    //Animations
     private <facelingEntity extends IAnimatable>PlayState predicate(AnimationEvent<facelingEntity> event) {
         if(event.isMoving() && !this.isAttacking()) {
             event.getController().setAnimationSpeed(2.5);
