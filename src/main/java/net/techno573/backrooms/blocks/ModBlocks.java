@@ -58,6 +58,19 @@ public class ModBlocks {
     public static final Block LVL2_CEILING_BLOCK = registerBlock("lvl2_ceiling_block", new Block(FabricBlockSettings.of(Material.STONE)
             .strength(6.0f).hardness(2.0f).requiresTool().sounds(BlockSoundGroup.STONE)), ModItemGroup.TECHNO_BACKROOMS);
 
+    //Blocks List - Level 2
+    public static final Block LVL3_WALL_BLOCK = registerBlock("lvl3_wall_block", new Block(FabricBlockSettings.of(Material.STONE)
+            .strength(6.0f).hardness(2.0f).requiresTool().sounds(BlockSoundGroup.STONE)), ModItemGroup.TECHNO_BACKROOMS);
+
+    public static final Block LVL3_PORTAL_BLOCK = registerBlock("lvl3_portal_block", new Lvl3PortalBlock(FabricBlockSettings.of(Material.PORTAL)
+            .strength(3600000f).hardness(-1f).dropsNothing().noCollision().luminance(15).sounds(BlockSoundGroup.STONE)), ModItemGroup.TECHNO_BACKROOMS);
+
+    public static final Block LVL3_FLOOR_BLOCK = registerBlock("lvl3_floor_block", new Block(FabricBlockSettings.of(Material.STONE)
+            .strength(6.0f).hardness(2.0f).requiresTool().sounds(BlockSoundGroup.STONE)), ModItemGroup.TECHNO_BACKROOMS);
+
+    public static final Block LVL3_CEILING_BLOCK = registerBlock("lvl3_ceiling_block", new Block(FabricBlockSettings.of(Material.STONE)
+            .strength(6.0f).hardness(2.0f).requiresTool().sounds(BlockSoundGroup.STONE)), ModItemGroup.TECHNO_BACKROOMS);
+
     //Blocks List - Generic
 
     public static final Block FLUORESCENT_LAMP = registerBlock("fluorescent_lamp", new FluorescentLampBlock(FabricBlockSettings.of(Material.REDSTONE_LAMP)
