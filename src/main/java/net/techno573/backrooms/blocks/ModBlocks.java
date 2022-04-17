@@ -76,6 +76,12 @@ public class ModBlocks {
     public static final Block FLUORESCENT_LAMP = registerBlock("fluorescent_lamp", new FluorescentLampBlock(FabricBlockSettings.of(Material.REDSTONE_LAMP)
             .strength(0.5f).hardness(0.5f).requiresTool().lightLevel((state) -> state.get(FluorescentLampBlock.LIT) ? 15 : 0).sounds(BlockSoundGroup.GLASS)), ModItemGroup.TECHNO_BACKROOMS);
 
+    public static final Block WIRED_FLUORESCENT_LAMP = registerBlock("wired_fluorescent_lamp", new WiredFluorescentLampBlock(FabricBlockSettings.of(Material.REDSTONE_LAMP)
+            .strength(0.5f).hardness(0.5f).requiresTool().lightLevel((state) -> state.get(WiredFluorescentLampBlock.LIT) ? 15 : 0).sounds(BlockSoundGroup.GLASS)), ModItemGroup.TECHNO_BACKROOMS);
+
+    public static final Block ELECTRICAL_WIRING = registerBlock("electrical_wiring", new ElectricalWiringBlock(FabricBlockSettings.of(Material.METAL)
+            .strength(1.5f).hardness(0.5f).sounds(BlockSoundGroup.METAL)), ModItemGroup.TECHNO_BACKROOMS);
+
     public static final Block LARGE_PIPES = registerBlock("large_pipes", new PipeBlock(Blocks.COPPER_BLOCK.getDefaultState(),FabricBlockSettings.of(Material.METAL)
             .strength(6.0f).hardness(2.0f).requiresTool().sounds(BlockSoundGroup.METAL)), ModItemGroup.TECHNO_BACKROOMS);
 

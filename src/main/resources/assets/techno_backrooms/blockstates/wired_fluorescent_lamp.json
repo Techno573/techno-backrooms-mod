@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "techno_backrooms:block/wired_fluorescent_lamp"
+    },
+    "lit=true": {
+      "model": "techno_backrooms:block/wired_fluorescent_lamp_on"
+    }
+  }
+}

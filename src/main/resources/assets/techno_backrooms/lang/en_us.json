@@ -32,6 +32,8 @@
   "block.techno_backrooms.lvl3_ceiling_block": "Level 3 Ceiling Block",
   "block.techno_backrooms.lvl3_portal_block": "Level 3 Portal Block",
   "block.techno_backrooms.fluorescent_lamp": "Fluorescent Lamp",
+  "block.techno_backrooms.wired_fluorescent_lamp": "Wired Fluorescent Lamp",
+  "block.techno_backrooms.electrical_wiring": "Electrical Wiring",
   "block.techno_backrooms.small_pipes": "Small Pipes",
   "block.techno_backrooms.large_pipes": "Large Pipes",
 
