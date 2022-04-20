@@ -25,7 +25,7 @@ public abstract class PlayerEntityMixin {
         PlayerEntity player = ((PlayerEntity) (Object) this);
         World world = player.world;
 
-        if (world instanceof ServerWorld && !player.hasVehicle() && !player.hasPassengers() && player.isInsideWall() && world.getRegistryKey() == World.OVERWORLD && world.getRandom().nextDouble(1) < 0.01) {
+        if (world instanceof ServerWorld && !player.hasVehicle() && !player.hasPassengers() && player.isInsideWall() && world.getRegistryKey() == World.OVERWORLD && world.getRandom().nextDouble(1) < 0.005) {
 
             ServerWorld serverWorld = ((ServerWorld)world).getServer().getWorld(ModWorld.LEVEL_0_WORLD.worldWorldRegistryKey);
             if (serverWorld == null) {
