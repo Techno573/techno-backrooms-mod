@@ -28,6 +28,9 @@ public class ModItems {
     public static final Item DULLER_SPAWN_EGG = registerItem("duller_spawn_egg", new SpawnEggItem(
             ModEntities.DULLER, 1250067, 2039583, new Item.Settings().group(ModItemGroup.TECHNO_BACKROOMS)));
 
+    public static final Item HOUND_SPAWN_EGG = registerItem("hound_spawn_egg", new SpawnEggItem(
+            ModEntities.HOUND, 16769202, 2039583, new Item.Settings().group(ModItemGroup.TECHNO_BACKROOMS)));
+
     //Register Items
 
     private static Item registerItem(String name, Item item) {

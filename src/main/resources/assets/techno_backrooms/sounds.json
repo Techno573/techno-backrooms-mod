@@ -49,5 +49,23 @@
     "techno_backrooms:entity/duller/scream3",
     "techno_backrooms:entity/duller/scream4"
     ]
+  },
+  "entity.hound.growl": {
+    "subtitle": "entity.hound.growl",
+    "sounds": [
+      "techno_backrooms:entity/hound/growl1",
+      "techno_backrooms:entity/hound/growl2",
+      "techno_backrooms:entity/hound/growl3",
+      "techno_backrooms:entity/hound/growl4"
+    ]
+  },
+  "entity.hound.bark": {
+    "subtitle": "entity.hound.bark",
+    "sounds": [
+      "techno_backrooms:entity/hound/bark1",
+      "techno_backrooms:entity/hound/bark2",
+      "techno_backrooms:entity/hound/bark3",
+      "techno_backrooms:entity/hound/bark4"
+    ]
   }
 }

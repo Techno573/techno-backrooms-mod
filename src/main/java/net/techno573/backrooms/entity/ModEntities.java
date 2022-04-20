@@ -10,8 +10,10 @@ import net.minecraft.util.registry.Registry;
 import net.techno573.backrooms.BackroomsMod;
 import net.techno573.backrooms.entity.advanced.DullerEntity;
 import net.techno573.backrooms.entity.advanced.FacelingEntity;
+import net.techno573.backrooms.entity.advanced.HoundEntity;
 import net.techno573.backrooms.entity.client.render.AlexFacelingRenderer;
 import net.techno573.backrooms.entity.client.render.DullerRenderer;
+import net.techno573.backrooms.entity.client.render.HoundRenderer;
 import net.techno573.backrooms.entity.client.render.SteveFacelingRenderer;
 
 public class ModEntities{
@@ -31,6 +33,11 @@ public class ModEntities{
             .dimensions(EntityDimensions.fixed(0.5f,2.3f))
             .build());
 
+    public static final EntityType<HoundEntity> HOUND = registerEntity("hound",FabricEntityTypeBuilder
+            .create(SpawnGroup.CREATURE,HoundEntity::new)
+            .dimensions(EntityDimensions.fixed(0.9f,0.9f))
+            .build());
+
     private static EntityType registerEntity(String name, EntityType entityType) {
         return Registry.register(Registry.ENTITY_TYPE, BackroomsMod.id(name), entityType);
     }
@@ -38,7 +45,9 @@ public class ModEntities{
     public static void registerEntityAttributes() {
         FabricDefaultAttributeRegistry.register(ModEntities.STEVE_FACELING, FacelingEntity.createFacelingAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.ALEX_FACELING, FacelingEntity.createFacelingAttributes());
-        FabricDefaultAttributeRegistry.register(ModEntities.DULLER, DullerEntity.createFacelingAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.DULLER, DullerEntity.createDullerAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.HOUND, HoundEntity.createHoundAttributes());
+
 
 
     }
@@ -47,6 +56,7 @@ public class ModEntities{
         EntityRendererRegistry.INSTANCE.register(ModEntities.STEVE_FACELING, SteveFacelingRenderer::new);
         EntityRendererRegistry.INSTANCE.register(ModEntities.ALEX_FACELING, AlexFacelingRenderer::new);
         EntityRendererRegistry.INSTANCE.register(ModEntities.DULLER, DullerRenderer::new);
+        EntityRendererRegistry.INSTANCE.register(ModEntities.HOUND, HoundRenderer::new);
 
     }
 }

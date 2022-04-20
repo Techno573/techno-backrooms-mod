@@ -29,7 +29,6 @@ public class BackroomsMod implements ModInitializer {
 		ModSounds.registerSounds();
 		ModWorld.init();
 		ModEntities.registerEntityAttributes();
-		ModEntities.registerEntityAttributes();
 		GeckoLib.initialize();
 	}
 }

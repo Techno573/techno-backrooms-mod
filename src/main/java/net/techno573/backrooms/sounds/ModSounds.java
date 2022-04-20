@@ -16,6 +16,8 @@ public class ModSounds {
     public static SoundEvent LEVEL_3_AMBIENT = registerSoundEvent("ambient.level_3");
     public static SoundEvent DULLER_AMBIENT = registerSoundEvent("entity.duller.ambient");
     public static SoundEvent DULLER_SCREAM = registerSoundEvent("entity.duller.scream");
+    public static SoundEvent HOUND_GROWL = registerSoundEvent("entity.hound.growl");
+    public static SoundEvent HOUND_BARK = registerSoundEvent("entity.hound.bark");
 
     private static SoundEvent registerSoundEvent(String name) {
         Identifier id = BackroomsMod.id(name);

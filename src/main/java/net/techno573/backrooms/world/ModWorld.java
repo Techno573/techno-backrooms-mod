@@ -16,6 +16,7 @@ import net.techno573.backrooms.BackroomsMod;
 import net.techno573.backrooms.world.biomes.Level0Biome;
 import net.techno573.backrooms.world.biomes.Level1Biome;
 import net.techno573.backrooms.world.biomes.Level2Biome;
+import net.techno573.backrooms.world.biomes.Level3Biome;
 import net.techno573.backrooms.world.chunks.Level0ChunkGen;
 import net.techno573.backrooms.world.chunks.Level1ChunkGen;
 import net.techno573.backrooms.world.chunks.Level2ChunkGen;
@@ -43,7 +44,7 @@ public class ModWorld {
     public static final RegistryKey<Biome> LEVEL_0_BIOME = getBiome("level_0", Level0Biome.create());
     public static final RegistryKey<Biome> LEVEL_1_BIOME = getBiome("level_1", Level1Biome.create());
     public static final RegistryKey<Biome> LEVEL_2_BIOME = getBiome("level_2", Level2Biome.create());
-    public static final RegistryKey<Biome> LEVEL_3_BIOME = getBiome("level_3", Level2Biome.create());
+    public static final RegistryKey<Biome> LEVEL_3_BIOME = getBiome("level_3", Level3Biome.create());
 
 
     //Effects List
@@ -82,7 +83,6 @@ public class ModWorld {
         getChunkGen("level_1_chunk_generator", Level1ChunkGen.CODEC);
         getChunkGen("level_2_chunk_generator", Level2ChunkGen.CODEC);
         getChunkGen("level_3_chunk_generator", Level3ChunkGen.CODEC);
-
 
     }
 }

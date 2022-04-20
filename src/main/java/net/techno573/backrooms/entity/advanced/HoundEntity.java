@@ -21,33 +21,32 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
 
-public class DullerEntity extends HostileEntity implements IAnimatable {
+public class HoundEntity extends HostileEntity implements IAnimatable {
 
     private AnimationFactory factory = new AnimationFactory(this);
 
-    public DullerEntity(EntityType<? extends HostileEntity> entityType, World world) {
+    public HoundEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
         this.ignoreCameraFrustum = true;
     }
 
     //Attributes
-    public static DefaultAttributeContainer.Builder createDullerAttributes() {
+    public static DefaultAttributeContainer.Builder createHoundAttributes() {
         return HostileEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 16)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED,0.35)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 5.0)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4.0)
                 .add(EntityAttributes.GENERIC_ARMOR,2.0)
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 25);
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 20);
     }
 
     //Goals
     @Override
     protected void initGoals() {
-        this.goalSelector.add(1,new TeleportTargetToMeGoal(this,8,5));
-        this.goalSelector.add(2,new MeleeAttackGoal(this,1.0,false));
-        this.goalSelector.add(3,new WanderAroundFarGoal(this,0.6));
-        this.goalSelector.add(4,new LookAtEntityGoal(this,PlayerEntity.class,8.0f));
-        this.goalSelector.add(5,new LookAroundGoal(this));
+        this.goalSelector.add(1,new MeleeAttackGoal(this,1.0,false));
+        this.goalSelector.add(2,new WanderAroundFarGoal(this,0.6));
+        this.goalSelector.add(3,new LookAtEntityGoal(this,PlayerEntity.class,8.0f));
+        this.goalSelector.add(4,new LookAroundGoal(this));
         this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, false));
     }
 
@@ -64,16 +63,16 @@ public class DullerEntity extends HostileEntity implements IAnimatable {
     //Sounds
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.DULLER_SCREAM;
+        return ModSounds.HOUND_GROWL;
     }
 
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
         if (this.isAttacking()) {
-            return ModSounds.DULLER_SCREAM;
+            return ModSounds.HOUND_BARK;
         }
-        return ModSounds.DULLER_AMBIENT;
+        return ModSounds.HOUND_GROWL;
     }
 
     //Animations
@@ -87,18 +86,18 @@ public class DullerEntity extends HostileEntity implements IAnimatable {
         return factory;
     }
 
-    private <dullerEntity extends IAnimatable>PlayState predicate(AnimationEvent<dullerEntity> event) {
+    private <houndEntity extends IAnimatable>PlayState predicate(AnimationEvent<houndEntity> event) {
         if (event.isMoving() && !this.isAttacking()) {
-            event.getController().setAnimationSpeed(2.5);
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.duller.walk"));
+            event.getController().setAnimationSpeed(1.0);
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.hound.walk"));
             return PlayState.CONTINUE;
         } else if (event.isMoving() && this.isAttacking()) {
-            event.getController().setAnimationSpeed(5.5);
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.duller.run"));
+            event.getController().setAnimationSpeed(1.0);
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.hound.run"));
             return PlayState.CONTINUE;
         }
-        event.getController().setAnimationSpeed(1.5);
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.duller.idle"));
+        event.getController().setAnimationSpeed(1.0);
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.hound.idle"));
         return PlayState.CONTINUE;
     }
 }
