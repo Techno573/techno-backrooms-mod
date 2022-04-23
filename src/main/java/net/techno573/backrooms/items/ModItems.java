@@ -19,6 +19,10 @@ public class ModItems {
     public static final Item MEDICAL_KIT = registerItem("medical_kit", new MedicalKitItem(
             new FabricItemSettings().maxCount(1).group(ModItemGroup.TECHNO_BACKROOMS)));
 
+    public static final Item FLASHLIGHT = registerItem("flashlight", new Item(
+            new FabricItemSettings().maxCount(1).group(ModItemGroup.TECHNO_BACKROOMS)));
+
+    //Spawn Eggs
     public static final Item STEVE_FACELING_SPAWN_EGG = registerItem("steve_faceling_spawn_egg", new SpawnEggItem(
             ModEntities.STEVE_FACELING, 44975, 4602533, new Item.Settings().group(ModItemGroup.TECHNO_BACKROOMS)));
 

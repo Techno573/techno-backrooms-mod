@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "techno_backrooms:block/lvl4_ceiling_block"
+  }
+}

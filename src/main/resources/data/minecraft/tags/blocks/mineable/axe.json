@@ -3,6 +3,9 @@
   "values": [
     "techno_backrooms:lvl0_wall_block",
     "techno_backrooms:lvl0_floor_block",
-    "techno_backrooms:lvl0_ceiling_block"
+    "techno_backrooms:lvl0_ceiling_block",
+    "techno_backrooms:lvl4_wall_block",
+    "techno_backrooms:lvl4_floor_block",
+    "techno_backrooms:lvl4_ceiling_block"
   ]
 }

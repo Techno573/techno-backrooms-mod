@@ -1,15 +1,21 @@
 package net.techno573.backrooms.mixin;
 
 import net.fabricmc.fabric.api.dimension.v1.FabricDimensions;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.function.BooleanBiFunction;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.Vec3i;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.TeleportTarget;
 import net.minecraft.world.World;
+import net.techno573.backrooms.blocks.ModBlocks;
+import net.techno573.backrooms.items.ModItems;
 import net.techno573.backrooms.sounds.ModTravelSound;
 import net.techno573.backrooms.world.ModWorld;
 import org.spongepowered.asm.mixin.Mixin;
@@ -34,6 +40,7 @@ public abstract class PlayerEntityMixin {
 
             ModTravelSound.isTraveling = true;
             FabricDimensions.teleport(
+
                     player,
                     serverWorld,
                     new TeleportTarget(
@@ -45,6 +52,12 @@ public abstract class PlayerEntityMixin {
             );
         }
 
+        if (!world.isClient()) {
+            if (player.isHolding(ModItems.FLASHLIGHT)) {
+                world.setBlockState(player.getBlockPos(), ModBlocks.FLASHLIGHT_LIGHT.getDefaultState());
+                if (world.getBlockState(player.getBlockPos().up()).isAir() || world.getBlockState(player.getBlockPos().up()).isOf(ModBlocks.FLASHLIGHT_LIGHT)) {
+                }
+            }
+        }
     }
-
 }

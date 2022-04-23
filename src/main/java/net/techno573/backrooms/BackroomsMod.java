@@ -3,6 +3,7 @@ package net.techno573.backrooms;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
 import net.techno573.backrooms.blocks.ModBlocks;
+import net.techno573.backrooms.blocks.entity.ModBlockEntities;
 import net.techno573.backrooms.entity.ModEntities;
 import net.techno573.backrooms.items.ModItems;
 import net.techno573.backrooms.sounds.ModSounds;
@@ -26,6 +27,7 @@ public class BackroomsMod implements ModInitializer {
 
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
+		ModBlockEntities.registerModBlockEntities();
 		ModSounds.registerSounds();
 		ModWorld.init();
 		ModEntities.registerEntityAttributes();
