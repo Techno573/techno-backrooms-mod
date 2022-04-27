@@ -54,8 +54,8 @@ public abstract class PlayerEntityMixin {
 
         if (!world.isClient()) {
             if (player.isHolding(ModItems.FLASHLIGHT)) {
-                world.setBlockState(player.getBlockPos(), ModBlocks.FLASHLIGHT_LIGHT.getDefaultState());
                 if (world.getBlockState(player.getBlockPos().up()).isAir() || world.getBlockState(player.getBlockPos().up()).isOf(ModBlocks.FLASHLIGHT_LIGHT)) {
+                    world.setBlockState(player.getBlockPos(), ModBlocks.FLASHLIGHT_LIGHT.getDefaultState());
                 }
             }
         }
