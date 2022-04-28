@@ -72,7 +72,7 @@ public class ModBlocks {
     public static final Block LVL4_WALL_BLOCK = registerBlock("lvl4_wall_block", new Block(FabricBlockSettings.of(Material.WOOD)
             .strength(3.0f).hardness(2.0f).sounds(BlockSoundGroup.WOOD)), ModItemGroup.TECHNO_BACKROOMS);
 
-    public static final Block LVL4_PORTAL_BLOCK = registerBlock("lvl4_portal_block", new Lvl0PortalBlock(FabricBlockSettings.of(Material.PORTAL)
+    public static final Block LVL4_PORTAL_BLOCK = registerBlock("lvl4_portal_block", new Lvl4PortalBlock(FabricBlockSettings.of(Material.PORTAL)
             .strength(3600000f).hardness(-1f).dropsNothing().noCollision().luminance(15).sounds(BlockSoundGroup.WOOD)), ModItemGroup.TECHNO_BACKROOMS);
 
     public static final Block LVL4_FLOOR_BLOCK = registerBlock("lvl4_floor_block", new Block(FabricBlockSettings.of(Material.WOOD)

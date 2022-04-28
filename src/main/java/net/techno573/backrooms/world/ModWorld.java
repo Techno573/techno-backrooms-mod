@@ -13,14 +13,8 @@ import net.minecraft.world.biome.source.FixedBiomeSource;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.techno573.backrooms.BackroomsMod;
-import net.techno573.backrooms.world.biomes.Level0Biome;
-import net.techno573.backrooms.world.biomes.Level1Biome;
-import net.techno573.backrooms.world.biomes.Level2Biome;
-import net.techno573.backrooms.world.biomes.Level3Biome;
-import net.techno573.backrooms.world.chunks.Level0ChunkGen;
-import net.techno573.backrooms.world.chunks.Level1ChunkGen;
-import net.techno573.backrooms.world.chunks.Level2ChunkGen;
-import net.techno573.backrooms.world.chunks.Level3ChunkGen;
+import net.techno573.backrooms.world.biomes.*;
+import net.techno573.backrooms.world.chunks.*;
 
 import java.util.Optional;
 import java.util.OptionalLong;
@@ -45,6 +39,8 @@ public class ModWorld {
     public static final RegistryKey<Biome> LEVEL_1_BIOME = getBiome("level_1", Level1Biome.create());
     public static final RegistryKey<Biome> LEVEL_2_BIOME = getBiome("level_2", Level2Biome.create());
     public static final RegistryKey<Biome> LEVEL_3_BIOME = getBiome("level_3", Level3Biome.create());
+    public static final RegistryKey<Biome> LEVEL_4_BIOME = getBiome("level_4", Level4Biome.create());
+
 
 
     //Effects List
@@ -53,6 +49,7 @@ public class ModWorld {
     public static final LiminalEffects LEVEL_1_EFFECTS = new LiminalEffects(Optional.empty(), Optional.empty(),Optional.empty(),Optional.empty(),Optional.empty(), Optional.of(new ReverbSettings().setEnabled(true).setDecayTime(1.5f).setDensity(1.25f)));
     public static final LiminalEffects LEVEL_2_EFFECTS = new LiminalEffects(Optional.empty(), Optional.empty(),Optional.empty(),Optional.empty(),Optional.empty(), Optional.of(new ReverbSettings().setEnabled(true).setDecayTime(1.75f).setDensity(1.5f)));
     public static final LiminalEffects LEVEL_3_EFFECTS = new LiminalEffects(Optional.empty(), Optional.empty(),Optional.empty(),Optional.empty(),Optional.empty(), Optional.of(new ReverbSettings().setEnabled(true).setDecayTime(1.75f).setDensity(1.5f)));
+    public static final LiminalEffects LEVEL_4_EFFECTS = new LiminalEffects(Optional.empty(), Optional.empty(),Optional.empty(),Optional.empty(),Optional.empty(), Optional.of(new ReverbSettings().setEnabled(false)));
 
 
     //Dimension List
@@ -76,6 +73,11 @@ public class ModWorld {
             false,true,true,false,0,128,5, BackroomsMod.id("level_3"), BackroomsMod.id("level_3"),
             0.0f), (biomeRegistry, seed) -> new Level3ChunkGen(new FixedBiomeSource(biomeRegistry.getOrThrow(ModWorld.LEVEL_3_BIOME)),seed),LEVEL_3_EFFECTS));
 
+    public static final LiminalWorld LEVEL_4_WORLD = getWorld("level_4",new LiminalWorld(BackroomsMod.id("level_4"),DimensionType.create(
+            OptionalLong.of(6000),true,false,false, false,1.0f,false,
+            false,true,true,false,0,128,5, BackroomsMod.id("level_4"), BackroomsMod.id("level_4"),
+            0.0f), (biomeRegistry, seed) -> new Level4ChunkGen(new FixedBiomeSource(biomeRegistry.getOrThrow(ModWorld.LEVEL_4_BIOME)),seed),LEVEL_4_EFFECTS));
+
     //Chunk Generator List
     public static void init() {
 
@@ -83,6 +85,8 @@ public class ModWorld {
         getChunkGen("level_1_chunk_generator", Level1ChunkGen.CODEC);
         getChunkGen("level_2_chunk_generator", Level2ChunkGen.CODEC);
         getChunkGen("level_3_chunk_generator", Level3ChunkGen.CODEC);
+        getChunkGen("level_4_chunk_generator", Level4ChunkGen.CODEC);
+
 
     }
 }

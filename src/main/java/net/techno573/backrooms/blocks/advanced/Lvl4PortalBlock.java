@@ -14,16 +14,16 @@ import net.minecraft.world.World;
 import net.techno573.backrooms.sounds.ModTravelSound;
 import net.techno573.backrooms.world.ModWorld;
 
-public class Lvl3PortalBlock extends Block {
-    public Lvl3PortalBlock(Settings settings) {
+public class Lvl4PortalBlock extends Block {
+    public Lvl4PortalBlock(Settings settings) {
         super(settings);
     }
 
     @Override
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-        if (world instanceof ServerWorld && !entity.hasVehicle() && entity.isPlayer() && !entity.hasPassengers() && entity.canUsePortals() && world.getRegistryKey() != ModWorld.LEVEL_4_WORLD.worldWorldRegistryKey && VoxelShapes.matchesAnywhere(VoxelShapes.cuboid(entity.getBoundingBox().offset(-pos.getX(), -pos.getY(), -pos.getZ())), state.getOutlineShape(world, pos), BooleanBiFunction.AND)) {
+        if (world instanceof ServerWorld && !entity.hasVehicle() && entity.isPlayer() && !entity.hasPassengers() && entity.canUsePortals() && world.getRegistryKey() != World.OVERWORLD && VoxelShapes.matchesAnywhere(VoxelShapes.cuboid(entity.getBoundingBox().offset(-pos.getX(), -pos.getY(), -pos.getZ())), state.getOutlineShape(world, pos), BooleanBiFunction.AND)) {
 
-            ServerWorld serverWorld = ((ServerWorld)world).getServer().getWorld(ModWorld.LEVEL_4_WORLD.worldWorldRegistryKey);
+            ServerWorld serverWorld = ((ServerWorld)world).getServer().getWorld(World.OVERWORLD);
             if (serverWorld == null) {
                 return;
             }
@@ -33,7 +33,7 @@ public class Lvl3PortalBlock extends Block {
                     entity,
                     serverWorld,
                     new TeleportTarget(
-                            new Vec3d(serverWorld.getSpawnPos().getX(),3,serverWorld.getSpawnPos().getZ()),
+                            new Vec3d(serverWorld.getSpawnPos().getX(), serverWorld.getSpawnPos().getY(),serverWorld.getSpawnPos().getZ()),
                             new Vec3d(0,0,0),
                             entity.getYaw(),
                             entity.getPitch()
