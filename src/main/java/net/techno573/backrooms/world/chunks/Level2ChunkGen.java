@@ -61,7 +61,7 @@ public class Level2ChunkGen extends NbtChunkGenerator {
             if (random.nextInt(100) < 7){
                 generateNbt(chunkRegion, chunk.getPos().getStartPos(), "roomset_portal_" + (random.nextInt(7)), BlockRotation.NONE);
             }
-            else if (random.nextInt(100) >=5 && random.nextInt(100) < 50) {
+            else if (random.nextInt(100) >=7 && random.nextInt(100) < 50) {
                 generateNbt(chunkRegion, chunk.getPos().getStartPos(), "roomset_dark_" + (random.nextInt(7)), BlockRotation.NONE);
             }
             else {

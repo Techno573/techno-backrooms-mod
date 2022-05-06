@@ -39,6 +39,12 @@
   "block.techno_backrooms.lvl4_floor_block": "Level 4 Floor Block",
   "block.techno_backrooms.lvl4_ceiling_block": "Level 4 Ceiling Block",
   "block.techno_backrooms.lvl4_portal_block": "Level 4 Portal Block",
+  "block.techno_backrooms.lvl5_wall_block": "Level 5 Wall Block",
+  "block.techno_backrooms.lvl5_wall_base_block": "Level 5 Wall Base Block",
+  "block.techno_backrooms.lvl5_floor_block": "Level 5 Floor Block",
+  "block.techno_backrooms.lvl5_ceiling_block": "Level 5 Ceiling Block",
+  "block.techno_backrooms.lvl5_portal_block": "Level 5 Portal Block",
+  "block.techno_backrooms.lvl5_portal_base_block": "Level 5 Portal Base Block",
 
   "block.techno_backrooms.fluorescent_lamp": "Fluorescent Lamp",
   "block.techno_backrooms.wired_fluorescent_lamp": "Wired Fluorescent Lamp",
@@ -46,6 +52,8 @@
   "block.techno_backrooms.small_pipes": "Small Pipes",
   "block.techno_backrooms.large_pipes": "Large Pipes",
   "block.techno_backrooms.office_drawer": "Office Drawer",
+  "block.techno_backrooms.small_table": "Small Table",
+  "block.techno_backrooms.chandelier": "Chandelier",
 
   "itemGroup.techno_backrooms.techno_backrooms": "Techno's Backrooms Mod"
 }

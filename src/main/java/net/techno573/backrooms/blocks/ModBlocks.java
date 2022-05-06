@@ -81,13 +81,32 @@ public class ModBlocks {
     public static final Block LVL4_CEILING_BLOCK = registerBlock("lvl4_ceiling_block", new Block(FabricBlockSettings.of(Material.WOOD)
             .strength(3.0f).hardness(2.0f).requiresTool().sounds(BlockSoundGroup.WOOD)), ModItemGroup.TECHNO_BACKROOMS);
 
+    //Blocks List - Level 5
+    public static final Block LVL5_WALL_BLOCK = registerBlock("lvl5_wall_block", new Block(FabricBlockSettings.of(Material.WOOD)
+            .strength(3.0f).hardness(2.0f).sounds(BlockSoundGroup.WOOD)), ModItemGroup.TECHNO_BACKROOMS);
+
+    public static final Block LVL5_WALL_BASE_BLOCK = registerBlock("lvl5_wall_base_block", new Block(FabricBlockSettings.of(Material.STONE)
+            .strength(3.0f).hardness(2.0f).sounds(BlockSoundGroup.STONE)), ModItemGroup.TECHNO_BACKROOMS);
+
+    public static final Block LVL5_PORTAL_BLOCK = registerBlock("lvl5_portal_block", new Lvl5PortalBlock(FabricBlockSettings.of(Material.PORTAL)
+            .strength(3600000f).hardness(-1f).dropsNothing().noCollision().luminance(15).sounds(BlockSoundGroup.WOOD)), ModItemGroup.TECHNO_BACKROOMS);
+
+    public static final Block LVL5_PORTAL_BASE_BLOCK = registerBlock("lvl5_portal_base_block", new Lvl5PortalBlock(FabricBlockSettings.of(Material.PORTAL)
+            .strength(3600000f).hardness(-1f).dropsNothing().noCollision().luminance(15).sounds(BlockSoundGroup.STONE)), ModItemGroup.TECHNO_BACKROOMS);
+
+    public static final Block LVL5_FLOOR_BLOCK = registerBlock("lvl5_floor_block", new Block(FabricBlockSettings.of(Material.WOOD)
+            .strength(3.0f).hardness(2.0f).sounds(BlockSoundGroup.WOOD)), ModItemGroup.TECHNO_BACKROOMS);
+
+    public static final Block LVL5_CEILING_BLOCK = registerBlock("lvl5_ceiling_block", new Block(FabricBlockSettings.of(Material.STONE)
+            .strength(3.0f).hardness(2.0f).requiresTool().sounds(BlockSoundGroup.STONE)), ModItemGroup.TECHNO_BACKROOMS);
+
     //Blocks List - Generic
 
     public static final Block FLUORESCENT_LAMP = registerBlock("fluorescent_lamp", new FluorescentLampBlock(FabricBlockSettings.of(Material.REDSTONE_LAMP)
-            .strength(0.5f).hardness(0.5f).requiresTool().lightLevel((state) -> state.get(FluorescentLampBlock.LIT) ? 15 : 0).sounds(BlockSoundGroup.GLASS)), ModItemGroup.TECHNO_BACKROOMS);
+            .strength(1.5f).hardness(0.5f).requiresTool().lightLevel((state) -> state.get(FluorescentLampBlock.LIT) ? 15 : 0).sounds(BlockSoundGroup.GLASS)), ModItemGroup.TECHNO_BACKROOMS);
 
     public static final Block WIRED_FLUORESCENT_LAMP = registerBlock("wired_fluorescent_lamp", new WiredFluorescentLampBlock(FabricBlockSettings.of(Material.REDSTONE_LAMP)
-            .strength(0.5f).hardness(0.5f).requiresTool().lightLevel((state) -> state.get(WiredFluorescentLampBlock.LIT) ? 15 : 0).sounds(BlockSoundGroup.GLASS)), ModItemGroup.TECHNO_BACKROOMS);
+            .strength(1.5f).hardness(0.5f).requiresTool().lightLevel((state) -> state.get(WiredFluorescentLampBlock.LIT) ? 15 : 0).sounds(BlockSoundGroup.GLASS)), ModItemGroup.TECHNO_BACKROOMS);
 
     public static final Block ELECTRICAL_WIRING = registerBlock("electrical_wiring", new ElectricalWiringBlock(FabricBlockSettings.of(Material.METAL)
             .strength(1.5f).hardness(0.5f).sounds(BlockSoundGroup.METAL)), ModItemGroup.TECHNO_BACKROOMS);
@@ -99,7 +118,13 @@ public class ModBlocks {
             .strength(6.0f).hardness(2.0f).requiresTool().sounds(BlockSoundGroup.METAL)), ModItemGroup.TECHNO_BACKROOMS);
 
     public static final Block OFFICE_DRAWER = registerBlock("office_drawer", new OfficeDrawerBlock(FabricBlockSettings.of(Material.WOOD)
-            .strength(3.0f).hardness(2.0f).sounds(BlockSoundGroup.WOOD)), ModItemGroup.TECHNO_BACKROOMS);
+            .strength(3.0f).hardness(2.0f).nonOpaque().sounds(BlockSoundGroup.WOOD)), ModItemGroup.TECHNO_BACKROOMS);
+
+    public static final Block SMALL_TABLE = registerBlock("small_table", new Block(FabricBlockSettings.of(Material.WOOD)
+            .strength(3.0f).nonOpaque().hardness(2.0f).sounds(BlockSoundGroup.WOOD)), ModItemGroup.TECHNO_BACKROOMS);
+
+    public static final Block CHANDELIER = registerBlock("chandelier", new Block(FabricBlockSettings.of(Material.METAL)
+            .strength(1.5f).hardness(0.5f).nonOpaque().dropsNothing().luminance(15).sounds(BlockSoundGroup.CHAIN)), ModItemGroup.TECHNO_BACKROOMS);
 
     public static final Block FLASHLIGHT_LIGHT = registerBlock("flashlight_light", new FlashlightLightBlock(FabricBlockSettings.of(Material.STONE)
             .strength(1.5f).hardness(0.5f).luminance(11).ticksRandomly().sounds(BlockSoundGroup.STONE)),null);

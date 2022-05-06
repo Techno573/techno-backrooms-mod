@@ -15,7 +15,7 @@ public class WiredFluorescentLampBlock extends RedstoneLampBlock {
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext context) {
-        return VoxelShapes.cuboid(0f, 0.75f, 0f, 0.1f, 1.0f, 1f);
+        return VoxelShapes.cuboid(0f, 0.75f, 0f, 1f, 1f, 1f);
     }
 
     @Override

@@ -40,6 +40,8 @@ public class ModWorld {
     public static final RegistryKey<Biome> LEVEL_2_BIOME = getBiome("level_2", Level2Biome.create());
     public static final RegistryKey<Biome> LEVEL_3_BIOME = getBiome("level_3", Level3Biome.create());
     public static final RegistryKey<Biome> LEVEL_4_BIOME = getBiome("level_4", Level4Biome.create());
+    public static final RegistryKey<Biome> LEVEL_5_BIOME = getBiome("level_5", Level5Biome.create());
+
 
 
 
@@ -50,6 +52,7 @@ public class ModWorld {
     public static final LiminalEffects LEVEL_2_EFFECTS = new LiminalEffects(Optional.empty(), Optional.empty(),Optional.empty(),Optional.empty(),Optional.empty(), Optional.of(new ReverbSettings().setEnabled(true).setDecayTime(1.75f).setDensity(1.5f)));
     public static final LiminalEffects LEVEL_3_EFFECTS = new LiminalEffects(Optional.empty(), Optional.empty(),Optional.empty(),Optional.empty(),Optional.empty(), Optional.of(new ReverbSettings().setEnabled(true).setDecayTime(1.75f).setDensity(1.5f)));
     public static final LiminalEffects LEVEL_4_EFFECTS = new LiminalEffects(Optional.empty(), Optional.empty(),Optional.empty(),Optional.empty(),Optional.empty(), Optional.of(new ReverbSettings().setEnabled(false)));
+    public static final LiminalEffects LEVEL_5_EFFECTS = new LiminalEffects(Optional.empty(), Optional.empty(),Optional.empty(),Optional.empty(),Optional.empty(), Optional.of(new ReverbSettings().setEnabled(true).setDecayTime(1.25f).setDensity(1.25f)));
 
 
     //Dimension List
@@ -78,6 +81,11 @@ public class ModWorld {
             false,true,true,false,0,128,5, BackroomsMod.id("level_4"), BackroomsMod.id("level_4"),
             0.0f), (biomeRegistry, seed) -> new Level4ChunkGen(new FixedBiomeSource(biomeRegistry.getOrThrow(ModWorld.LEVEL_4_BIOME)),seed),LEVEL_4_EFFECTS));
 
+    public static final LiminalWorld LEVEL_5_WORLD = getWorld("level_5",new LiminalWorld(BackroomsMod.id("level_5"),DimensionType.create(
+            OptionalLong.of(6000),true,false,false, false,1.0f,false,
+            false,true,true,false,0,128,5, BackroomsMod.id("level_5"), BackroomsMod.id("level_5"),
+            0.0f), (biomeRegistry, seed) -> new Level5ChunkGen(new FixedBiomeSource(biomeRegistry.getOrThrow(ModWorld.LEVEL_5_BIOME)),seed),LEVEL_5_EFFECTS));
+
     //Chunk Generator List
     public static void init() {
 
@@ -86,6 +94,8 @@ public class ModWorld {
         getChunkGen("level_2_chunk_generator", Level2ChunkGen.CODEC);
         getChunkGen("level_3_chunk_generator", Level3ChunkGen.CODEC);
         getChunkGen("level_4_chunk_generator", Level4ChunkGen.CODEC);
+        getChunkGen("level_5_chunk_generator", Level5ChunkGen.CODEC);
+
 
 
     }
