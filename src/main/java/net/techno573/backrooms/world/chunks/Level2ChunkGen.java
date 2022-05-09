@@ -1,45 +1,48 @@
 package net.techno573.backrooms.world.chunks;
 
+import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.Lifecycle;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.ludocrypt.limlib.api.world.NbtChunkGenerator;
+import net.ludocrypt.limlib.api.LiminalUtil;
+import net.ludocrypt.limlib.api.world.AbstractNbtChunkGenerator;
+import net.minecraft.server.world.ChunkHolder;
 import net.minecraft.server.world.ServerLightingProvider;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.structure.StructureManager;
+import net.minecraft.structure.StructureSet;
 import net.minecraft.util.BlockRotation;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.SimpleRegistry;
 import net.minecraft.world.ChunkRegion;
 import net.minecraft.world.HeightLimitView;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.source.BiomeSource;
-import net.minecraft.world.biome.source.util.MultiNoiseUtil;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkStatus;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.techno573.backrooms.BackroomsMod;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
+import java.util.function.Function;
 
-public class Level2ChunkGen extends NbtChunkGenerator {
+public class Level2ChunkGen extends AbstractNbtChunkGenerator {
 
-    public static final Codec<Level2ChunkGen> CODEC = RecordCodecBuilder.create((level2ChunkGenInstance -> {
-        return level2ChunkGenInstance.group(BiomeSource.CODEC.fieldOf("biome_source").stable().forGetter(
-                (Level2ChunkGen) -> Level2ChunkGen.biomeSource
-        ),Codec.LONG.fieldOf("seed").stable().forGetter((Level2ChunkGen) -> Level2ChunkGen.worldSeed)).apply(
-                level2ChunkGenInstance,level2ChunkGenInstance.stable(Level2ChunkGen::new));
-    }));
+    public static final Codec<Level2ChunkGen> CODEC = RecordCodecBuilder.create((level2ChunkGenInstance -> level2ChunkGenInstance.group(BiomeSource.CODEC.fieldOf("biome_source").stable().forGetter(
+            (Level2ChunkGen) -> Level2ChunkGen.biomeSource
+    ),Codec.LONG.fieldOf("seed").stable().forGetter((Level2ChunkGen) -> Level2ChunkGen.worldSeed)).apply(
+            level2ChunkGenInstance,level2ChunkGenInstance.stable(Level2ChunkGen::new))));
+
+    private long worldSeed;
 
     public Level2ChunkGen(BiomeSource biomeSource, long worldSeed) {
-        super(biomeSource, worldSeed, BackroomsMod.id("level_2"),List.of());
-    }
+        super(new SimpleRegistry<StructureSet>(Registry.STRUCTURE_SET_KEY, Lifecycle.stable(), null), Optional.empty(), biomeSource, biomeSource, worldSeed, BackroomsMod.id("level_2"), LiminalUtil.createMultiNoiseSampler());    }
 
-    public Level2ChunkGen(BiomeSource biomeSource, MultiNoiseUtil.MultiNoiseSampler multiNoiseSampler, long worldSeed, Identifier nbtId, List<String> structures) {
-        super(biomeSource, multiNoiseSampler, worldSeed, nbtId, structures);
-    }
 
     private int mod(int x, int n) {
         int r = x % n;
@@ -50,8 +53,35 @@ public class Level2ChunkGen extends NbtChunkGenerator {
     }
 
     @Override
-    public CompletableFuture<Chunk> populateNoise(Executor executor, Chunk chunk, ChunkStatus targetStatus, ServerWorld world, ChunkRegion chunkRegion, StructureManager structureManager, ServerLightingProvider lightingProvider) {
+    protected Codec<? extends ChunkGenerator> getCodec() {
+        return CODEC;
+    }
 
+    @Override
+    public ChunkGenerator withSeed(long seed) {
+        return new Level2ChunkGen(this.biomeSource,seed);
+    }
+
+
+    @Override
+    public int getWorldHeight() {
+        return 128;
+    }
+
+    @Override
+    public int getHeight(int x, int z, Heightmap.Type heightmap, HeightLimitView world) {
+        return 6;
+    }
+
+    @Override
+    public void storeStructures(ServerWorld world) {
+        store("roomset_light",world,0,6);
+        store("roomset_dark",world,0,6);
+        store("roomset_portal",world,0,6);
+    }
+
+    @Override
+    public CompletableFuture<Chunk> populateNoise(ChunkRegion chunkRegion, ChunkStatus targetStatus, Executor executor, ServerWorld world, ChunkGenerator generator, StructureManager structureManager, ServerLightingProvider lightingProvider, Function<Chunk, CompletableFuture<Either<Chunk, ChunkHolder.Unloaded>>> function, List<Chunk> chunks, Chunk chunk, boolean bl) {
         int x = chunk.getPos().getStartX();
         int z = chunk.getPos().getStartZ();
         Random random = new Random(chunkRegion.getSeed() + MathHelper.hashCode(chunk.getPos().getStartX(), chunk.getPos().getStartZ(), x + z));
@@ -74,42 +104,8 @@ public class Level2ChunkGen extends NbtChunkGenerator {
     }
 
     @Override
-    protected Codec<? extends ChunkGenerator> getCodec() {
-        return CODEC;
-    }
-
-    @Override
-    public ChunkGenerator withSeed(long seed) {
-        return new Level2ChunkGen(biomeSource,seed);
-    }
-
-    @Override
-    public int getWorldHeight() {
-        return 128;
-    }
-
-    @Override
-    public int getHeight(int x, int z, Heightmap.Type heightmap, HeightLimitView world) {
-        return 6;
-    }
-
-    @Override
-    public void storeStructures(ServerWorld world) {
-        super.storeStructures(world);
-
-        store("roomset_light",world,0,6);
-        store("roomset_dark",world,0,6);
-        store("roomset_portal",world,0,6);
-
-    }
-
-    @Override
-    public int getChunkRadius() {
+    public int chunkRadius() {
         return 3;
     }
-
-    @Override
-    protected Identifier getBarrelLootTable() {
-        return BackroomsMod.id("containers/supply_crate");
-    }
 }
+

@@ -11,7 +11,6 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.TeleportTarget;
 import net.minecraft.world.World;
-import net.techno573.backrooms.sounds.ModTravelSound;
 
 public class Lvl5PortalBlock extends Block {
     public Lvl5PortalBlock(Settings settings) {
@@ -27,7 +26,6 @@ public class Lvl5PortalBlock extends Block {
                 return;
             }
 
-            ModTravelSound.isTraveling = true;
             FabricDimensions.teleport(
                     entity,
                     serverWorld,

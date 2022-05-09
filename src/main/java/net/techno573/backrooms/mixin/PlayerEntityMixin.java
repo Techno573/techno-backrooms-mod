@@ -16,7 +16,6 @@ import net.minecraft.world.TeleportTarget;
 import net.minecraft.world.World;
 import net.techno573.backrooms.blocks.ModBlocks;
 import net.techno573.backrooms.items.ModItems;
-import net.techno573.backrooms.sounds.ModTravelSound;
 import net.techno573.backrooms.world.ModWorld;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -33,12 +32,11 @@ public abstract class PlayerEntityMixin {
 
         if (world instanceof ServerWorld && !player.hasVehicle() && !player.hasPassengers() && player.isInsideWall() && world.getRegistryKey() == World.OVERWORLD && world.getRandom().nextDouble(1) < 0.005) {
 
-            ServerWorld serverWorld = ((ServerWorld)world).getServer().getWorld(ModWorld.LEVEL_0_WORLD.worldWorldRegistryKey);
+            ServerWorld serverWorld = ((ServerWorld)world).getServer().getWorld(ModWorld.LEVEL_0_WORLD.getWorldKey());
             if (serverWorld == null) {
                 return;
             }
 
-            ModTravelSound.isTraveling = true;
             FabricDimensions.teleport(
 
                     player,

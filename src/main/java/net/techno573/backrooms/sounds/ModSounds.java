@@ -1,7 +1,6 @@
 package net.techno573.backrooms.sounds;
 
-import net.ludocrypt.limlib.api.sound.LiminalTravelSound;
-import net.ludocrypt.limlib.impl.world.LiminalSoundRegistry;
+
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.techno573.backrooms.BackroomsMod;
@@ -27,6 +26,4 @@ public class ModSounds {
     public static void registerSounds() {
         System.out.println("Registering Mod Sounds for" + BackroomsMod.MOD_ID);
     }
-
-    public static LiminalTravelSound travelSoundRegister = LiminalSoundRegistry.registerOverride(BackroomsMod.id("travel_glitch"), new ModTravelSound());
 }

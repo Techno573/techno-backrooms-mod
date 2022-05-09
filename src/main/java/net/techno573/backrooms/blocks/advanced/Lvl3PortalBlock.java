@@ -11,7 +11,6 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.TeleportTarget;
 import net.minecraft.world.World;
-import net.techno573.backrooms.sounds.ModTravelSound;
 import net.techno573.backrooms.world.ModWorld;
 
 public class Lvl3PortalBlock extends Block {
@@ -21,14 +20,13 @@ public class Lvl3PortalBlock extends Block {
 
     @Override
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-        if (world instanceof ServerWorld && !entity.hasVehicle() && entity.isPlayer() && !entity.hasPassengers() && entity.canUsePortals() && world.getRegistryKey() != ModWorld.LEVEL_4_WORLD.worldWorldRegistryKey && VoxelShapes.matchesAnywhere(VoxelShapes.cuboid(entity.getBoundingBox().offset(-pos.getX(), -pos.getY(), -pos.getZ())), state.getOutlineShape(world, pos), BooleanBiFunction.AND)) {
+        if (world instanceof ServerWorld && !entity.hasVehicle() && entity.isPlayer() && !entity.hasPassengers() && entity.canUsePortals() && world.getRegistryKey() != ModWorld.LEVEL_4_WORLD.getWorldKey() && VoxelShapes.matchesAnywhere(VoxelShapes.cuboid(entity.getBoundingBox().offset(-pos.getX(), -pos.getY(), -pos.getZ())), state.getOutlineShape(world, pos), BooleanBiFunction.AND)) {
 
-            ServerWorld serverWorld = ((ServerWorld)world).getServer().getWorld(ModWorld.LEVEL_4_WORLD.worldWorldRegistryKey);
+            ServerWorld serverWorld = ((ServerWorld)world).getServer().getWorld(ModWorld.LEVEL_4_WORLD.getWorldKey());
             if (serverWorld == null) {
                 return;
             }
 
-            ModTravelSound.isTraveling = true;
             FabricDimensions.teleport(
                     entity,
                     serverWorld,
