@@ -31,7 +31,7 @@ public class HoundEntity extends HostileEntity implements IAnimatable {
     }
 
     //Attributes
-    public static DefaultAttributeContainer.Builder createHoundAttributes() {
+    public static DefaultAttributeContainer.Builder createAttributes() {
         return HostileEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 16)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED,0.35)

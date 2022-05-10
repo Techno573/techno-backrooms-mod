@@ -11,10 +11,8 @@ import net.techno573.backrooms.BackroomsMod;
 import net.techno573.backrooms.entity.advanced.DullerEntity;
 import net.techno573.backrooms.entity.advanced.FacelingEntity;
 import net.techno573.backrooms.entity.advanced.HoundEntity;
-import net.techno573.backrooms.entity.client.render.AlexFacelingRenderer;
-import net.techno573.backrooms.entity.client.render.DullerRenderer;
-import net.techno573.backrooms.entity.client.render.HoundRenderer;
-import net.techno573.backrooms.entity.client.render.SteveFacelingRenderer;
+import net.techno573.backrooms.entity.advanced.SmilerEntity;
+import net.techno573.backrooms.entity.client.render.*;
 
 public class ModEntities{
 
@@ -38,18 +36,21 @@ public class ModEntities{
             .dimensions(EntityDimensions.fixed(0.9f,0.9f))
             .build());
 
+    public static final EntityType<SmilerEntity> SMILER = registerEntity("smiler",FabricEntityTypeBuilder
+            .create(SpawnGroup.CREATURE,SmilerEntity::new)
+            .dimensions(EntityDimensions.fixed(0.8f,1.8f))
+            .build());
+
     private static EntityType registerEntity(String name, EntityType entityType) {
         return Registry.register(Registry.ENTITY_TYPE, BackroomsMod.id(name), entityType);
     }
 
     public static void registerEntityAttributes() {
-        FabricDefaultAttributeRegistry.register(ModEntities.STEVE_FACELING, FacelingEntity.createFacelingAttributes());
-        FabricDefaultAttributeRegistry.register(ModEntities.ALEX_FACELING, FacelingEntity.createFacelingAttributes());
-        FabricDefaultAttributeRegistry.register(ModEntities.DULLER, DullerEntity.createDullerAttributes());
-        FabricDefaultAttributeRegistry.register(ModEntities.HOUND, HoundEntity.createHoundAttributes());
-
-
-
+        FabricDefaultAttributeRegistry.register(ModEntities.STEVE_FACELING, FacelingEntity.createAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.ALEX_FACELING, FacelingEntity.createAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.DULLER, DullerEntity.createAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.HOUND, HoundEntity.createAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.SMILER, SmilerEntity.createAttributes());
     }
 
     public static void registerEntityRenderers() {
@@ -57,6 +58,6 @@ public class ModEntities{
         EntityRendererRegistry.INSTANCE.register(ModEntities.ALEX_FACELING, AlexFacelingRenderer::new);
         EntityRendererRegistry.INSTANCE.register(ModEntities.DULLER, DullerRenderer::new);
         EntityRendererRegistry.INSTANCE.register(ModEntities.HOUND, HoundRenderer::new);
-
+        EntityRendererRegistry.INSTANCE.register(ModEntities.SMILER, SmilerRenderer::new);
     }
 }

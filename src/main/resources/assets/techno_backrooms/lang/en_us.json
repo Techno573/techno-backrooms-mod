@@ -6,6 +6,7 @@
   "entity.techno_backrooms.alex_faceling": "Faceling Alex",
   "entity.techno_backrooms.duller": "Duller",
   "entity.techno_backrooms.hound": "Hound",
+  "entity.techno_backrooms.smiler": "Smiler",
 
 
 
@@ -16,6 +17,8 @@
   "item.techno_backrooms.alex_faceling_spawn_egg": "Faceling Alex Spawn Egg",
   "item.techno_backrooms.duller_spawn_egg": "Duller Spawn Egg",
   "item.techno_backrooms.hound_spawn_egg": "Hound Spawn Egg",
+  "item.techno_backrooms.smiler_spawn_egg": "Smiler Spawn Egg",
+
 
   "container.office_drawer": "Office Drawer",
 

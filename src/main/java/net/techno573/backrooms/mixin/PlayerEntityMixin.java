@@ -1,6 +1,7 @@
 package net.techno573.backrooms.mixin;
 
 import net.fabricmc.fabric.api.dimension.v1.FabricDimensions;
+import net.ludocrypt.limlib.api.LiminalUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
@@ -16,6 +17,7 @@ import net.minecraft.world.TeleportTarget;
 import net.minecraft.world.World;
 import net.techno573.backrooms.blocks.ModBlocks;
 import net.techno573.backrooms.items.ModItems;
+import net.techno573.backrooms.sounds.ModSounds;
 import net.techno573.backrooms.world.ModWorld;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -37,16 +39,18 @@ public abstract class PlayerEntityMixin {
                 return;
             }
 
-            FabricDimensions.teleport(
-
+            LiminalUtil.travelTo(
                     player,
                     serverWorld,
                     new TeleportTarget(
-                            new Vec3d(serverWorld.getSpawnPos().getX(), 4,serverWorld.getSpawnPos().getZ()),
+                            new Vec3d(serverWorld.getSpawnPos().getX(), 3,serverWorld.getSpawnPos().getZ()),
                             new Vec3d(0,0,0),
                             player.getYaw(),
                             player.getPitch()
-                    )
+                    ),
+                    ModSounds.TRAVEL_GLITCH,
+                    1.0f,
+                    1.0f
             );
         }
 

@@ -8,13 +8,20 @@ import net.minecraft.util.registry.Registry;
 
 public class ModSounds {
 
+    //Travel Sound
     public static SoundEvent TRAVEL_GLITCH = registerSoundEvent("misc.travel_glitch");
+
+    //Ambiences
     public static SoundEvent LEVEL_0_AMBIENT = registerSoundEvent("ambient.level_0");
     public static SoundEvent LEVEL_1_AMBIENT = registerSoundEvent("ambient.level_1");
     public static SoundEvent LEVEL_2_AMBIENT = registerSoundEvent("ambient.level_2");
     public static SoundEvent LEVEL_3_AMBIENT = registerSoundEvent("ambient.level_3");
+
+    //Mob Sounds - Duller
     public static SoundEvent DULLER_AMBIENT = registerSoundEvent("entity.duller.ambient");
     public static SoundEvent DULLER_SCREAM = registerSoundEvent("entity.duller.scream");
+
+    //MobSounds - Hound
     public static SoundEvent HOUND_GROWL = registerSoundEvent("entity.hound.growl");
     public static SoundEvent HOUND_BARK = registerSoundEvent("entity.hound.bark");
 

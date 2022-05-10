@@ -9,7 +9,6 @@ import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.world.World;
-import net.techno573.backrooms.entity.goals.TeleportTargetToMeGoal;
 import net.techno573.backrooms.sounds.ModSounds;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.IAnimatable;
@@ -21,11 +20,11 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
 
-public class DullerEntity extends HostileEntity implements IAnimatable {
+public class SmilerEntity extends HostileEntity implements IAnimatable {
 
     private AnimationFactory factory = new AnimationFactory(this);
 
-    public DullerEntity(EntityType<? extends HostileEntity> entityType, World world) {
+    public SmilerEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
         this.ignoreCameraFrustum = true;
     }
@@ -34,20 +33,19 @@ public class DullerEntity extends HostileEntity implements IAnimatable {
     public static DefaultAttributeContainer.Builder createAttributes() {
         return HostileEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 16)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED,0.35)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED,0.3)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 5.0)
                 .add(EntityAttributes.GENERIC_ARMOR,2.0)
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 25);
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 20);
     }
 
     //Goals
     @Override
     protected void initGoals() {
-        this.goalSelector.add(1,new TeleportTargetToMeGoal(this,8,5));
-        this.goalSelector.add(2,new MeleeAttackGoal(this,1.0,false));
-        this.goalSelector.add(3,new WanderAroundFarGoal(this,0.6));
-        this.goalSelector.add(4,new LookAtEntityGoal(this,PlayerEntity.class,8.0f));
-        this.goalSelector.add(5,new LookAroundGoal(this));
+        this.goalSelector.add(1,new MeleeAttackGoal(this,1.0,false));
+        this.goalSelector.add(2,new WanderAroundFarGoal(this,0.6));
+        this.goalSelector.add(3,new LookAtEntityGoal(this,PlayerEntity.class,8.0f));
+        this.goalSelector.add(4,new LookAroundGoal(this));
         this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, false));
     }
 
@@ -61,21 +59,6 @@ public class DullerEntity extends HostileEntity implements IAnimatable {
         super.onTrackedDataSet(data);
     }
 
-    //Sounds
-    @Override
-    protected SoundEvent getDeathSound() {
-        return ModSounds.DULLER_SCREAM;
-    }
-
-    @Nullable
-    @Override
-    protected SoundEvent getAmbientSound() {
-        if (this.isAttacking()) {
-            return ModSounds.DULLER_SCREAM;
-        }
-        return ModSounds.DULLER_AMBIENT;
-    }
-
     //Animations
     @Override
     public void registerControllers(AnimationData animationData) {
@@ -87,18 +70,7 @@ public class DullerEntity extends HostileEntity implements IAnimatable {
         return factory;
     }
 
-    private <dullerEntity extends IAnimatable>PlayState predicate(AnimationEvent<dullerEntity> event) {
-        if (event.isMoving() && !this.isAttacking()) {
-            event.getController().setAnimationSpeed(2.5);
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.duller.walk"));
-            return PlayState.CONTINUE;
-        } else if (event.isMoving() && this.isAttacking()) {
-            event.getController().setAnimationSpeed(5.5);
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.duller.run"));
-            return PlayState.CONTINUE;
-        }
-        event.getController().setAnimationSpeed(1.5);
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.duller.idle"));
+    private <smilerEntity extends IAnimatable>PlayState predicate(AnimationEvent<smilerEntity> event) {
         return PlayState.CONTINUE;
     }
 }
