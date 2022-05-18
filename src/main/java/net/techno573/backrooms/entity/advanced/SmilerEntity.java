@@ -1,11 +1,15 @@
 package net.techno573.backrooms.entity.advanced;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.sound.SoundEvent;
@@ -44,9 +48,9 @@ public class SmilerEntity extends HostileEntity implements IAnimatable {
     @Override
     protected void initGoals() {
         this.goalSelector.add(1,new MeleeAttackGoal(this,1.0,false));
-        this.goalSelector.add(2,new WanderAroundFarGoal(this,0.6));
-        this.goalSelector.add(3,new LookAtEntityGoal(this,PlayerEntity.class,8.0f));
-        this.goalSelector.add(4,new LookAroundGoal(this));
+        this.goalSelector.add(3,new WanderAroundFarGoal(this,0.6));
+        this.goalSelector.add(4,new LookAtEntityGoal(this,PlayerEntity.class,8.0f));
+        this.goalSelector.add(5,new LookAroundGoal(this));
         this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, false));
     }
 
@@ -73,5 +77,10 @@ public class SmilerEntity extends HostileEntity implements IAnimatable {
 
     private <smilerEntity extends IAnimatable>PlayState predicate(AnimationEvent<smilerEntity> event) {
         return PlayState.CONTINUE;
+    }
+
+    @Override
+    public void onAttacking(Entity target) {
+        ((LivingEntity) target).addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 140), this);
     }
 }
