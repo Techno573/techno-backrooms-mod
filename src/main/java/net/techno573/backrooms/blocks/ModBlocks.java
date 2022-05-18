@@ -127,7 +127,7 @@ public class ModBlocks {
             .strength(1.5f).hardness(0.5f).nonOpaque().dropsNothing().luminance(15).sounds(BlockSoundGroup.CHAIN)), ModItemGroup.TECHNO_BACKROOMS);
 
     public static final Block FLASHLIGHT_LIGHT = registerBlock("flashlight_light", new FlashlightLightBlock(FabricBlockSettings.of(Material.STONE)
-            .strength(1.5f).hardness(0.5f).luminance(11).ticksRandomly().sounds(BlockSoundGroup.STONE)),null);
+            .strength(3600000f).hardness(-1f).luminance(10).ticksRandomly().sounds(BlockSoundGroup.STONE)),null);
 
     //Register Blocks
     private static Block registerBlock(String name, Block block, ItemGroup group) {

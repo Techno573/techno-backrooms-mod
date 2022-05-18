@@ -6,12 +6,15 @@ import com.mojang.serialization.Lifecycle;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.ludocrypt.limlib.api.LiminalUtil;
 import net.ludocrypt.limlib.api.world.AbstractNbtChunkGenerator;
+import net.minecraft.block.BlockState;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ChunkHolder;
 import net.minecraft.server.world.ServerLightingProvider;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.StructureSet;
 import net.minecraft.util.BlockRotation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.SimpleRegistry;
@@ -23,6 +26,8 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkStatus;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.techno573.backrooms.BackroomsMod;
+import net.techno573.backrooms.blocks.ModBlocks;
+import net.techno573.backrooms.blocks.entity.OfficeDrawerEntity;
 
 import java.util.List;
 import java.util.Optional;
@@ -101,6 +106,16 @@ public class Level4ChunkGen extends AbstractNbtChunkGenerator {
         }
 
         return CompletableFuture.completedFuture(chunk);
+    }
+
+    @Override
+    protected void modifyStructure(ChunkRegion region, BlockPos pos, BlockState state, NbtCompound nbt) {
+        super.modifyStructure(region, pos, state, nbt);
+        if (state.isOf(ModBlocks.OFFICE_DRAWER)) {
+            if (region.getBlockEntity(pos) instanceof OfficeDrawerEntity drawer) {
+                drawer.setLootTable(BackroomsMod.id("containers/office_drawer"), region.getSeed() + MathHelper.hashCode(pos));
+            }
+        }
     }
 
     @Override

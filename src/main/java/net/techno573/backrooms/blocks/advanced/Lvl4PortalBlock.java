@@ -33,7 +33,7 @@ public class Lvl4PortalBlock extends Block {
                     entity,
                     serverWorld,
                     new TeleportTarget(
-                            new Vec3d(serverWorld.getSpawnPos().getX(), 3,serverWorld.getSpawnPos().getZ()),
+                            new Vec3d(22, 3,22),
                             new Vec3d(0,0,0),
                             entity.getYaw(),
                             entity.getPitch()
