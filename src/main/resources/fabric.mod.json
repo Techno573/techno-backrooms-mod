@@ -4,13 +4,13 @@
   "version": "${version}",
 
   "name": "Techno's Backrooms Mod",
-  "description": "A Minecraft 1.18.1 Fabric Mod",
+  "description": "A Minecraft 1.18.2 Fabric Mod about the Backrooms",
   "authors": [
     "Techno573"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
-    "sources": ""
+    "sources": "https://github.com/Techno573/techno-backrooms-mod-1.18.1"
   },
 
   "license": "CC-BY-SA",
