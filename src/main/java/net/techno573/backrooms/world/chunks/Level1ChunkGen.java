@@ -12,6 +12,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.StructureSet;
 import net.minecraft.util.BlockRotation;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.SimpleRegistry;
@@ -101,6 +102,11 @@ public class Level1ChunkGen extends AbstractNbtChunkGenerator {
         }
 
         return CompletableFuture.completedFuture(chunk);
+    }
+
+    @Override
+    protected Identifier getBarrelLootTable() {
+        return BackroomsMod.id("containers/supply_crate");
     }
 
     @Override
