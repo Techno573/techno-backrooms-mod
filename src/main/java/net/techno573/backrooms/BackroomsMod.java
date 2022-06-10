@@ -29,7 +29,7 @@ public class BackroomsMod implements ModInitializer {
 		ModBlocks.registerModBlocks();
 		ModBlockEntities.registerModBlockEntities();
 		ModSounds.registerSounds();
-		ModWorld.init();
+		ModWorld.registerChunkGenerators();
 		ModEntities.registerEntityAttributes();
 		GeckoLib.initialize();
 	}

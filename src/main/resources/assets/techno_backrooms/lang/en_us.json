@@ -48,6 +48,12 @@
   "block.techno_backrooms.lvl5_ceiling_block": "Level 5 Ceiling Block",
   "block.techno_backrooms.lvl5_portal_block": "Level 5 Portal Block",
   "block.techno_backrooms.lvl5_portal_base_block": "Level 5 Portal Base Block",
+  "block.techno_backrooms.lvl6_wall_block": "Level 6 Wall Block",
+  "block.techno_backrooms.lvl6_wall_top_block": "Level 6 Wall Top Block",
+  "block.techno_backrooms.lvl6_floor_block": "Level 6 Floor Block",
+  "block.techno_backrooms.lvl6_ceiling_block": "Level 6 Ceiling Block",
+  "block.techno_backrooms.lvl6_portal_block": "Level 6 Portal Block",
+  "block.techno_backrooms.lvl6_portal_top_block": "Level 6 Portal Top Block",
 
   "block.techno_backrooms.fluorescent_lamp": "Fluorescent Lamp",
   "block.techno_backrooms.wired_fluorescent_lamp": "Wired Fluorescent Lamp",

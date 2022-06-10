@@ -1,26 +1,12 @@
 package net.techno573.backrooms.mixin;
 
-import net.fabricmc.fabric.api.dimension.v1.FabricDimensions;
 import net.ludocrypt.limlib.api.LiminalUtil;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.function.BooleanBiFunction;
-import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.math.Vec3i;
-import net.minecraft.util.registry.RegistryKey;
-import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.TeleportTarget;
 import net.minecraft.world.World;
 import net.techno573.backrooms.blocks.ModBlocks;
-import net.techno573.backrooms.entity.ModEntities;
-import net.techno573.backrooms.entity.advanced.SmilerEntity;
 import net.techno573.backrooms.items.ModItems;
 import net.techno573.backrooms.sounds.ModSounds;
 import net.techno573.backrooms.world.ModWorld;

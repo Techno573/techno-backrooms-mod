@@ -46,9 +46,7 @@ public class ModWorld {
     public static final RegistryKey<Biome> LEVEL_3_BIOME = getBiome("level_3", Level3Biome.create());
     public static final RegistryKey<Biome> LEVEL_4_BIOME = getBiome("level_4", Level4Biome.create());
     public static final RegistryKey<Biome> LEVEL_5_BIOME = getBiome("level_5", Level5Biome.create());
-
-
-
+    public static final RegistryKey<Biome> LEVEL_6_BIOME = getBiome("level_6", Level6Biome.create());
 
     //Effects List
 
@@ -58,7 +56,7 @@ public class ModWorld {
     public static final LiminalEffects LEVEL_3_EFFECTS = new LiminalEffects(Optional.of(new LiminalBaseEffects.SimpleBaseEffects(Optional.empty(), false, DimensionEffects.SkyType.NONE.toString(), false, false, false)), Optional.empty(), Optional.empty(), Optional.empty(), Optional.of(new ReverbSettings().setEnabled(true).setDecayTime(1.25f).setDensity(1.25f)));
     public static final LiminalEffects LEVEL_4_EFFECTS = new LiminalEffects(Optional.of(new LiminalBaseEffects.SimpleBaseEffects(Optional.empty(), false, DimensionEffects.SkyType.NONE.toString(), false, false, false)), Optional.empty(), Optional.empty(), Optional.empty(),  Optional.empty());
     public static final LiminalEffects LEVEL_5_EFFECTS = new LiminalEffects(Optional.of(new LiminalBaseEffects.SimpleBaseEffects(Optional.empty(), false, DimensionEffects.SkyType.NONE.toString(), false, false, false)), Optional.empty(), Optional.empty(), Optional.empty(), Optional.of(new ReverbSettings().setEnabled(true).setDecayTime(1.25f).setDensity(1.25f)));
-
+    public static final LiminalEffects LEVEL_6_EFFECTS = new LiminalEffects(Optional.of(new LiminalBaseEffects.SimpleBaseEffects(Optional.empty(), false, DimensionEffects.SkyType.NONE.toString(), false, false, false)), Optional.empty(), Optional.empty(), Optional.empty(), Optional.of(new ReverbSettings().setEnabled(true).setDecayTime(1.25f).setDensity(1.25f)));
 
     //Dimension List
     public static final LiminalWorld LEVEL_0_WORLD = getWorld("level_0", new LiminalWorld(BackroomsMod.id("level_0"), DimensionType.create(
@@ -99,8 +97,14 @@ public class ModWorld {
             TagKey.of(Registry.BLOCK_KEY, BackroomsMod.id("level_5")), BackroomsMod.id("level_5"), 0.0F),
             (world, dimensionTypeRegistry, biomeRegistry, structureRegistry, chunkGeneratorSettingsRegistry, noiseSettingsRegistry, registryManager, seed) -> new DimensionOptions(dimensionTypeRegistry.getOrCreateEntry(world.getDimensionTypeKey()), new Level5ChunkGen(new FixedBiomeSource(biomeRegistry.getOrCreateEntry(ModWorld.LEVEL_5_BIOME)), seed)), LEVEL_5_EFFECTS));
 
+    public static final LiminalWorld LEVEL_6_WORLD = getWorld("level_6", new LiminalWorld(BackroomsMod.id("level_6"), DimensionType.create(
+            OptionalLong.of(6000), true, false, false, false, 1.0f, false,
+            false, true, false, false, 0, 128, 5,
+            TagKey.of(Registry.BLOCK_KEY, BackroomsMod.id("level_6")), BackroomsMod.id("level_6"), 0.0F),
+            (world, dimensionTypeRegistry, biomeRegistry, structureRegistry, chunkGeneratorSettingsRegistry, noiseSettingsRegistry, registryManager, seed) -> new DimensionOptions(dimensionTypeRegistry.getOrCreateEntry(world.getDimensionTypeKey()), new Level6ChunkGen(new FixedBiomeSource(biomeRegistry.getOrCreateEntry(ModWorld.LEVEL_6_BIOME)), seed)), LEVEL_6_EFFECTS));
+
     //Chunk Generator List
-    public static void init() {
+    public static void registerChunkGenerators() {
 
         getChunkGen("level_0_chunk_generator", Level0ChunkGen.CODEC);
         getChunkGen("level_1_chunk_generator", Level1ChunkGen.CODEC);
@@ -108,7 +112,7 @@ public class ModWorld {
         getChunkGen("level_3_chunk_generator", Level3ChunkGen.CODEC);
         getChunkGen("level_4_chunk_generator", Level4ChunkGen.CODEC);
         getChunkGen("level_5_chunk_generator", Level5ChunkGen.CODEC);
-
+        getChunkGen("level_6_chunk_generator", Level6ChunkGen.CODEC);
 
 
     }

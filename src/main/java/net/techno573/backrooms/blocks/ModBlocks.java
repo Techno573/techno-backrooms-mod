@@ -100,8 +100,26 @@ public class ModBlocks {
     public static final Block LVL5_CEILING_BLOCK = registerBlock("lvl5_ceiling_block", new Block(FabricBlockSettings.of(Material.STONE)
             .strength(3.0f).hardness(2.0f).requiresTool().sounds(BlockSoundGroup.STONE)), ModItemGroup.TECHNO_BACKROOMS);
 
-    //Blocks List - Generic
+    //Blocks List - Level 6
+    public static final Block LVL6_WALL_BLOCK = registerBlock("lvl6_wall_block", new Block(FabricBlockSettings.of(Material.METAL)
+            .strength(6.0f).hardness(5.0f).sounds(BlockSoundGroup.METAL)), ModItemGroup.TECHNO_BACKROOMS);
 
+    public static final Block LVL6_WALL_TOP_BLOCK = registerBlock("lvl6_wall_top_block", new Block(FabricBlockSettings.of(Material.METAL)
+            .strength(6.0f).hardness(5.0f).sounds(BlockSoundGroup.METAL)), ModItemGroup.TECHNO_BACKROOMS);
+
+    public static final Block LVL6_PORTAL_BLOCK = registerBlock("lvl6_portal_block", new Lvl6PortalBlock(FabricBlockSettings.of(Material.PORTAL)
+            .strength(3600000f).hardness(-1f).dropsNothing().noCollision().luminance(15).sounds(BlockSoundGroup.METAL)), ModItemGroup.TECHNO_BACKROOMS);
+
+    public static final Block LVL6_PORTAL_TOP_BLOCK = registerBlock("lvl6_portal_top_block", new Lvl6PortalBlock(FabricBlockSettings.of(Material.PORTAL)
+            .strength(3600000f).hardness(-1f).dropsNothing().noCollision().luminance(15).sounds(BlockSoundGroup.METAL)), ModItemGroup.TECHNO_BACKROOMS);
+
+    public static final Block LVL6_FLOOR_BLOCK = registerBlock("lvl6_floor_block", new Block(FabricBlockSettings.of(Material.STONE)
+            .strength(6.0f).hardness(2.0f).requiresTool().sounds(BlockSoundGroup.STONE)), ModItemGroup.TECHNO_BACKROOMS);
+
+    public static final Block LVL6_CEILING_BLOCK = registerBlock("lvl6_ceiling_block", new Block(FabricBlockSettings.of(Material.STONE)
+            .strength(6.0f).hardness(2.0f).requiresTool().sounds(BlockSoundGroup.STONE)), ModItemGroup.TECHNO_BACKROOMS);
+
+    //Blocks List - Generic
     public static final Block FLUORESCENT_LAMP = registerBlock("fluorescent_lamp", new FluorescentLampBlock(FabricBlockSettings.of(Material.REDSTONE_LAMP)
             .strength(1.5f).hardness(0.5f).requiresTool().lightLevel((state) -> state.get(FluorescentLampBlock.LIT) ? 15 : 0).sounds(BlockSoundGroup.GLASS)), ModItemGroup.TECHNO_BACKROOMS);
 
@@ -111,7 +129,7 @@ public class ModBlocks {
     public static final Block ELECTRICAL_WIRING = registerBlock("electrical_wiring", new ElectricalWiringBlock(FabricBlockSettings.of(Material.METAL)
             .strength(1.5f).hardness(0.5f).sounds(BlockSoundGroup.METAL)), ModItemGroup.TECHNO_BACKROOMS);
 
-    public static final Block LARGE_PIPES = registerBlock("large_pipes", new PipeBlock(Blocks.COPPER_BLOCK.getDefaultState(),FabricBlockSettings.of(Material.METAL)
+    public static final Block LARGE_PIPES = registerBlock("large_pipes", new PipeBlock(Blocks.COPPER_BLOCK.getDefaultState(), FabricBlockSettings.of(Material.METAL)
             .strength(6.0f).hardness(2.0f).requiresTool().sounds(BlockSoundGroup.METAL)), ModItemGroup.TECHNO_BACKROOMS);
 
     public static final Block SMALL_PIPES = registerBlock("small_pipes", new PipeBlock(Blocks.COPPER_BLOCK.getDefaultState(), FabricBlockSettings.of(Material.METAL)
@@ -127,12 +145,12 @@ public class ModBlocks {
             .strength(1.5f).hardness(0.5f).nonOpaque().dropsNothing().luminance(15).sounds(BlockSoundGroup.CHAIN)), ModItemGroup.TECHNO_BACKROOMS);
 
     public static final Block FLASHLIGHT_LIGHT = registerBlock("flashlight_light", new FlashlightLightBlock(FabricBlockSettings.of(Material.STONE)
-            .strength(3600000f).hardness(-1f).luminance(10).ticksRandomly().sounds(BlockSoundGroup.STONE)),null);
+            .strength(3600000f).hardness(-1f).luminance(10).ticksRandomly().sounds(BlockSoundGroup.STONE)), null);
 
     //Register Blocks
     private static Block registerBlock(String name, Block block, ItemGroup group) {
-      registerBlockItem(name, block, group);
-      return Registry.register(Registry.BLOCK, new Identifier(BackroomsMod.MOD_ID, name), block);
+        registerBlockItem(name, block, group);
+        return Registry.register(Registry.BLOCK, new Identifier(BackroomsMod.MOD_ID, name), block);
     }
 
     private static Item registerBlockItem(String name, Block block, ItemGroup group) {

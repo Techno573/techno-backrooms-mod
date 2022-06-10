@@ -1,0 +1,24 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "techno_backrooms:block/lvl6_wall_top_block/0"
+      },
+      {
+        "model": "techno_backrooms:block/lvl6_wall_top_block/1"
+      },
+      {
+        "model": "techno_backrooms:block/lvl6_wall_top_block/2"
+      },
+      {
+        "model": "techno_backrooms:block/lvl6_wall_top_block/3"
+      },
+      {
+        "model": "techno_backrooms:block/lvl6_wall_top_block/4"
+      },
+      {
+        "model": "techno_backrooms:block/lvl6_wall_top_block/5"
+      }
+    ]
+  }
+}
