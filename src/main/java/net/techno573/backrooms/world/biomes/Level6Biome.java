@@ -27,6 +27,7 @@ public class Level6Biome {
 
         biome.spawnSettings(spawnSettings
                 .spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.SMILER,1,0,1))
+                .spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.FROWNER,1,0,1))
                 .creatureSpawnProbability(0.007f)
                 .build());
         biome.generationSettings(generationSettings.build());

@@ -7,6 +7,8 @@
   "entity.techno_backrooms.duller": "Duller",
   "entity.techno_backrooms.hound": "Hound",
   "entity.techno_backrooms.smiler": "Smiler",
+  "entity.techno_backrooms.smiler": "Frowner",
+
 
 
 
@@ -18,6 +20,7 @@
   "item.techno_backrooms.duller_spawn_egg": "Duller Spawn Egg",
   "item.techno_backrooms.hound_spawn_egg": "Hound Spawn Egg",
   "item.techno_backrooms.smiler_spawn_egg": "Smiler Spawn Egg",
+  "item.techno_backrooms.frowner_spawn_egg": "Frowner Spawn Egg",
 
 
   "container.office_drawer": "Office Drawer",
