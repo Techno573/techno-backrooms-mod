@@ -26,6 +26,10 @@ public class ModSounds {
     public static SoundEvent HOUND_GROWL = registerSoundEvent("entity.hound.growl");
     public static SoundEvent HOUND_BARK = registerSoundEvent("entity.hound.bark");
 
+    //MobSounds - Partygoer
+    public static SoundEvent PARTYGOER_GIGGLES = registerSoundEvent("entity.partygoer.giggles");
+
+
     private static SoundEvent registerSoundEvent(String name) {
         Identifier id = BackroomsMod.id(name);
         return Registry.register(Registry.SOUND_EVENT, id, new SoundEvent(id));

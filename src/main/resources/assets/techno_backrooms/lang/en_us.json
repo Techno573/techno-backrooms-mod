@@ -7,10 +7,8 @@
   "entity.techno_backrooms.duller": "Duller",
   "entity.techno_backrooms.hound": "Hound",
   "entity.techno_backrooms.smiler": "Smiler",
-  "entity.techno_backrooms.smiler": "Frowner",
-
-
-
+  "entity.techno_backrooms.frowner": "Frowner",
+  "entity.techno_backrooms.partygoer": "Partygoer",
 
   "item.techno_backrooms.almond_water": "Almond Water Bottle",
   "item.techno_backrooms.medical_kit": "Medical Kit",
@@ -21,6 +19,8 @@
   "item.techno_backrooms.hound_spawn_egg": "Hound Spawn Egg",
   "item.techno_backrooms.smiler_spawn_egg": "Smiler Spawn Egg",
   "item.techno_backrooms.frowner_spawn_egg": "Frowner Spawn Egg",
+  "item.techno_backrooms.partygoer_spawn_egg": "Partygoer Spawn Egg",
+
 
 
   "container.office_drawer": "Office Drawer",

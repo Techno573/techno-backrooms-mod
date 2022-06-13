@@ -73,5 +73,15 @@
       "techno_backrooms:entity/hound/bark3",
       "techno_backrooms:entity/hound/bark4"
     ]
+  },
+  "entity.partygoer.giggles": {
+    "subtitle": "entity.partygoer.giggles",
+    "sounds": [
+      "techno_backrooms:entity/partygoer/giggle1",
+      "techno_backrooms:entity/partygoer/giggle2",
+      "techno_backrooms:entity/partygoer/giggle3",
+      "techno_backrooms:entity/partygoer/giggle4",
+      "techno_backrooms:entity/partygoer/giggle5"
+    ]
   }
 }

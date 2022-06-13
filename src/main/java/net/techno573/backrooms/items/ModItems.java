@@ -41,6 +41,9 @@ public class ModItems {
     public static final Item FROWNER_SPAWN_EGG = registerItem("frowner_spawn_egg", new SpawnEggItem(
             ModEntities.FROWNER, 1250067, 16777215, new Item.Settings().group(ModItemGroup.TECHNO_BACKROOMS)));
 
+    public static final Item PARTYGOER_SPAWN_EGG = registerItem("partygoer_spawn_egg", new SpawnEggItem(
+            ModEntities.PARTYGOER, 15120430, 12517376, new Item.Settings().group(ModItemGroup.TECHNO_BACKROOMS)));
+
     //Register Items
 
     private static Item registerItem(String name, Item item) {

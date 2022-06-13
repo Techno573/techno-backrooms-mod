@@ -43,6 +43,11 @@ public class ModEntities{
             .dimensions(EntityDimensions.fixed(0.8f,1.8f))
             .build());
 
+    public static final EntityType<PartygoerEntity> PARTYGOER = registerEntity("partygoer",FabricEntityTypeBuilder
+            .create(SpawnGroup.CREATURE,PartygoerEntity::new)
+            .dimensions(EntityDimensions.fixed(0.5f,2.3f))
+            .build());
+
     private static EntityType registerEntity(String name, EntityType entityType) {
         return Registry.register(Registry.ENTITY_TYPE, BackroomsMod.id(name), entityType);
     }
@@ -54,6 +59,7 @@ public class ModEntities{
         FabricDefaultAttributeRegistry.register(ModEntities.HOUND, HoundEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.SMILER, SmilerEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.FROWNER, FrownerEntity.createAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.PARTYGOER, PartygoerEntity.createAttributes());
 
     }
 
@@ -64,6 +70,8 @@ public class ModEntities{
         EntityRendererRegistry.INSTANCE.register(ModEntities.HOUND, HoundRenderer::new);
         EntityRendererRegistry.INSTANCE.register(ModEntities.SMILER, SmilerRenderer::new);
         EntityRendererRegistry.INSTANCE.register(ModEntities.FROWNER, FrownerRenderer::new);
+        EntityRendererRegistry.INSTANCE.register(ModEntities.PARTYGOER, PartygoerRenderer::new);
+
 
     }
 }
