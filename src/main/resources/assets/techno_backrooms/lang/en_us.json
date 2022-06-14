@@ -57,6 +57,9 @@
   "block.techno_backrooms.lvl6_ceiling_block": "Level 6 Ceiling Block",
   "block.techno_backrooms.lvl6_portal_block": "Level 6 Portal Block",
   "block.techno_backrooms.lvl6_portal_top_block": "Level 6 Portal Top Block",
+  "block.techno_backrooms.lvlf_wall_block": "Level FUN Wall Block",
+  "block.techno_backrooms.lvlf_floor_block": "Level FUN Floor Block",
+  "block.techno_backrooms.lvlf_ceiling_block": "Level FUN Ceiling Block",
 
   "block.techno_backrooms.fluorescent_lamp": "Fluorescent Lamp",
   "block.techno_backrooms.wired_fluorescent_lamp": "Wired Fluorescent Lamp",

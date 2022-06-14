@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "techno_backrooms:block/lvlf_wall_block"
+  }
+}

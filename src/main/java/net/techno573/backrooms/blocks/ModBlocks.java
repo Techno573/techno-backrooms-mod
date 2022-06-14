@@ -119,6 +119,16 @@ public class ModBlocks {
     public static final Block LVL6_CEILING_BLOCK = registerBlock("lvl6_ceiling_block", new Block(FabricBlockSettings.of(Material.STONE)
             .strength(6.0f).hardness(2.0f).requiresTool().sounds(BlockSoundGroup.STONE)), ModItemGroup.TECHNO_BACKROOMS);
 
+    //Blocks List - Level FUN
+    public static final Block LVLF_WALL_BLOCK = registerBlock("lvlf_wall_block", new Block(FabricBlockSettings.of(Material.WOOD)
+            .strength(3.0f).hardness(2.0f).sounds(BlockSoundGroup.WOOD)), ModItemGroup.TECHNO_BACKROOMS);
+
+    public static final Block LVLF_FLOOR_BLOCK = registerBlock("lvlf_floor_block", new Block(FabricBlockSettings.of(Material.WOOD)
+            .strength(3.0f).hardness(2.0f).sounds(BlockSoundGroup.WOOD)), ModItemGroup.TECHNO_BACKROOMS);
+
+    public static final Block LVLF_CEILING_BLOCK = registerBlock("lvlf_ceiling_block", new Block(FabricBlockSettings.of(Material.WOOD)
+            .strength(3.0f).hardness(2.0f).requiresTool().sounds(BlockSoundGroup.WOOD)), ModItemGroup.TECHNO_BACKROOMS);
+
     //Blocks List - Generic
     public static final Block FLUORESCENT_LAMP = registerBlock("fluorescent_lamp", new FluorescentLampBlock(FabricBlockSettings.of(Material.REDSTONE_LAMP)
             .strength(1.5f).hardness(0.5f).requiresTool().lightLevel((state) -> state.get(FluorescentLampBlock.LIT) ? 15 : 0).sounds(BlockSoundGroup.GLASS)), ModItemGroup.TECHNO_BACKROOMS);
