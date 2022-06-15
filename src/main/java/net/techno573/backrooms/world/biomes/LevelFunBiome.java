@@ -8,7 +8,7 @@ import net.minecraft.world.biome.SpawnSettings;
 import net.techno573.backrooms.entity.ModEntities;
 import net.techno573.backrooms.sounds.ModSounds;
 
-public class Level6Biome {
+public class LevelFunBiome {
 
     public static Biome create() {
         Biome.Builder biome = new Biome.Builder();
@@ -22,12 +22,11 @@ public class Level6Biome {
         biomeEffects.waterColor(16777215);
         biomeEffects.waterFogColor(16777215);
         biomeEffects.fogColor(16777215);
-        biomeEffects.loopSound(ModSounds.LEVEL_6_AMBIENT);
+        biomeEffects.loopSound(ModSounds.LEVEL_0_AMBIENT);
         BiomeEffects effects = biomeEffects.build();
 
         biome.spawnSettings(spawnSettings
-                .spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.SMILER,1,0,1))
-                .spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.FROWNER,1,0,1))
+                .spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.PARTYGOER,1,1,1))
                 .creatureSpawnProbability(0.05f)
                 .build());
         biome.generationSettings(generationSettings.build());

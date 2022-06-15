@@ -28,7 +28,7 @@ public class Level5Biome {
         biome.spawnSettings(spawnSettings
                 .spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.HOUND,1,0,1))
                 .spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.SMILER,1,0,1))
-                .creatureSpawnProbability(0.007f)
+                .creatureSpawnProbability(0.05f)
                 .build());
         biome.generationSettings(generationSettings.build());
         biome.effects(effects);

@@ -31,7 +31,7 @@ public class Level3Biome {
                 .spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.HOUND,1,0,1))
                 .spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.ALEX_FACELING,1,0,1))
                 .spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.STEVE_FACELING,1,0,1))
-                .creatureSpawnProbability(0.01f)
+                .creatureSpawnProbability(0.05f)
                 .build());
         biome.generationSettings(generationSettings.build());
         biome.effects(effects);
