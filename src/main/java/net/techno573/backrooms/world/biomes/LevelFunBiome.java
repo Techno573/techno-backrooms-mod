@@ -22,7 +22,7 @@ public class LevelFunBiome {
         biomeEffects.waterColor(16777215);
         biomeEffects.waterFogColor(16777215);
         biomeEffects.fogColor(16777215);
-        biomeEffects.loopSound(ModSounds.LEVEL_0_AMBIENT);
+        biomeEffects.loopSound(ModSounds.LEVEL_FUN_AMBIENT);
         BiomeEffects effects = biomeEffects.build();
 
         biome.spawnSettings(spawnSettings

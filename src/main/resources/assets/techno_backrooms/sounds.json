@@ -29,6 +29,12 @@
       "techno_backrooms:ambient/level_6"
     ]
   },
+  "ambient.level_fun": {
+    "subtitle": "ambient.level_fun",
+    "sounds": [
+      "techno_backrooms:ambient/level_fun"
+    ]
+  },
   "misc.travel_glitch": {
     "subtitle": "misc.travel_glitch",
     "sounds": [

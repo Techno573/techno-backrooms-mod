@@ -17,6 +17,8 @@ public class ModSounds {
     public static SoundEvent LEVEL_2_AMBIENT = registerSoundEvent("ambient.level_2");
     public static SoundEvent LEVEL_3_AMBIENT = registerSoundEvent("ambient.level_3");
     public static SoundEvent LEVEL_6_AMBIENT = registerSoundEvent("ambient.level_6");
+    public static SoundEvent LEVEL_FUN_AMBIENT = registerSoundEvent("ambient.level_fun");
+
 
     //Mob Sounds - Duller
     public static SoundEvent DULLER_AMBIENT = registerSoundEvent("entity.duller.ambient");
