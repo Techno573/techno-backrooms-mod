@@ -25,23 +25,41 @@ public class Lvl2PortalBlock extends Block {
         if (world instanceof ServerWorld && !entity.hasVehicle() && entity.isPlayer() && !entity.hasPassengers() && entity.canUsePortals() && world.getRegistryKey() != ModWorld.LEVEL_3_WORLD.getWorldKey() && VoxelShapes.matchesAnywhere(VoxelShapes.cuboid(entity.getBoundingBox().offset(-pos.getX(), -pos.getY(), -pos.getZ())), state.getOutlineShape(world, pos), BooleanBiFunction.AND)) {
 
             ServerWorld serverWorld = ((ServerWorld)world).getServer().getWorld(ModWorld.LEVEL_3_WORLD.getWorldKey());
-            if (serverWorld == null) {
-                return;
-            }
+            ServerWorld levelFun = ((ServerWorld)world).getServer().getWorld(ModWorld.LEVEL_FUN_WORLD.getWorldKey());
 
-            LiminalUtil.travelTo(
-                    entity,
-                    serverWorld,
-                    new TeleportTarget(
-                            new Vec3d(serverWorld.getSpawnPos().getX(), 3,serverWorld.getSpawnPos().getZ()),
-                            new Vec3d(0,0,0),
-                            entity.getYaw(),
-                            entity.getPitch()
-                    ),
-                    ModSounds.TRAVEL_GLITCH,
-                    1.0f,
-                    1.0f
-            );
+            if (serverWorld == null || levelFun == null) {
+                return;
+            } else {
+                if (entity.world.getRandom().nextDouble() < 0.15) {
+                    LiminalUtil.travelTo(
+                            entity,
+                            levelFun,
+                            new TeleportTarget(
+                                    new Vec3d(serverWorld.getSpawnPos().getX(), 3,serverWorld.getSpawnPos().getZ()),
+                                    new Vec3d(0,0,0),
+                                    entity.getYaw(),
+                                    entity.getPitch()
+                            ),
+                            ModSounds.TRAVEL_GLITCH,
+                            1.0f,
+                            1.0f
+                    );
+                } else {
+                    LiminalUtil.travelTo(
+                            entity,
+                            serverWorld,
+                            new TeleportTarget(
+                                    new Vec3d(serverWorld.getSpawnPos().getX(), 3,serverWorld.getSpawnPos().getZ()),
+                                    new Vec3d(0,0,0),
+                                    entity.getYaw(),
+                                    entity.getPitch()
+                            ),
+                            ModSounds.TRAVEL_GLITCH,
+                            1.0f,
+                            1.0f
+                    );
+                }
+            }
         }
     }
 }

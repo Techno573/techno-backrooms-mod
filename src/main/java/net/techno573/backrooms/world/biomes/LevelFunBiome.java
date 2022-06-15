@@ -27,7 +27,7 @@ public class LevelFunBiome {
 
         biome.spawnSettings(spawnSettings
                 .spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.PARTYGOER,1,1,1))
-                .creatureSpawnProbability(0.05f)
+                .creatureSpawnProbability(0.5f)
                 .build());
         biome.generationSettings(generationSettings.build());
         biome.effects(effects);
